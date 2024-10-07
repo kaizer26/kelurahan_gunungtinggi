@@ -1,49 +1,66 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+from streamlit_gsheets import GSheetsConnection
 
-### Import Data
-dataumkm = pd.read_excel("C:/Users/wella/Documents/Asha/SMT7/magang/DESA SEKARWANGI/Data UMKM Sekarwangi_ready.xlsx")
-type(dataumkm)
-dataumkm["NIK"] = dataumkm["NIK"].astype("string")
-dataumkm["No HP"] = dataumkm["No HP"].astype("string")
-dataumkm['RW'] = dataumkm['ALAMAT'].str[-5:]
-dataumkm['RT'] = dataumkm['ALAMAT'].str[-11:]
-df = dataumkm
+st.set_page_config(
+    page_title="Data Kependudukan",
+    page_icon=":family:",
+)
 
-st.markdown("# Grafik")
+#this is the header
+t1, t2 = st.columns((0.25,1))
 
-a = st.sidebar.radio('Jumlah Karakteristik yang Ingin Divisualisasikan:', [1, 2])
+t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 120)
+t2.title("Desa Cibiru Wetan")
+t2.write("**Data Kependudukan**")
+t2.markdown(" **website:** https://cibiruwetan.desa.id **| email:** desawisatacibiruwetan@gmail.com")
 
-if a==1:
-    #Dropdown Menu
-    kolom_1 = st.selectbox("Pilih Karakteristik", dataumkm.columns, index=7)
 
-    ###Bar Chart
-    st.subheader("Grafik Batang")
-    tes = dataumkm.pivot_table(index=dataumkm[kolom_1],values='NIK',aggfunc='count')
-    st.bar_chart(data = tes, height = 700)
+#this is content
+ #st.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2023/01/branding-cibiru-wetan-WISATA-1-800x197.png')
+st.write("# Piramida Penduduk Tahun 2024")
 
-    st.subheader("Scatter Plot")
-    st.write("Grafik ini menunjukkan pelaku UMKM di Desa Sekarwangi menurut besarnya modal usaha dan pendapatan usaha per bulan.")
+### Import Data Lengkap
+url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
+conn  = st.experimental_connection("gsheets", type=GSheetsConnection)
+datap2024 = conn.read(spreadsheet=url2)
+datap2024 = pd.DataFrame(datap2024)                       #convert ke panda df
+jp2024=datap2024.iloc[0:16,1:3].sum().sum()
 
-    fig = px.scatter(
-        data_frame=dataumkm, x="BESARNYA MODAL USAHA", y="PENDAPATAN PER BULAN",color=kolom_1,symbol=kolom_1)
-    st.plotly_chart(fig)
+datapiramida = datap2024.iloc[0:16,1:3]
+jk = list(["Laki-laki","Perempuan"])
+datapiramida.iloc[0:16,0]=-datapiramida.iloc[0:16,0]
+datapiramida.index = list(datap2024.iloc[0:16,0])
+datapiramida.columns = jk
+#st.bar_chart(datapiramida)
 
-elif a==2:
-    #Dropdown Menu
-    kolom_1 = st.selectbox("Pilih Karakteristik Pertama", dataumkm.columns, index=7)
-    kolom_2 = st.selectbox("Pilih Karakteristik Kedua", dataumkm.columns, index=17)
+import altair as alt
+# Convert wide-form data to long-form
+# See: https://altair-viz.github.io/user_guide/data.html#long-form-vs-wide-form-data
+data = pd.melt(datapiramida.reset_index(), id_vars=["index"])
 
-    ###Bar Chart
-    st.subheader("Grafik Batang")
-    tes = pd.crosstab(dataumkm[kolom_1],dataumkm[kolom_2])
-    st.bar_chart(data = tes, height = 700)
+# Horizontal stacked bar chart
+chart = (
+    alt.Chart(data)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title=""),
+    )
+)
 
-    st.subheader("Scatter Plot")
-    st.write("Grafik ini menunjukkan pelaku UMKM di Desa Sekarwangi menurut besarnya modal usaha dan pendapatan usaha per bulan.")
+st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
 
-    fig = px.scatter(
-        data_frame=dataumkm, x="BESARNYA MODAL USAHA", y="PENDAPATAN PER BULAN",color=kolom_1,symbol=kolom_2)
-    st.plotly_chart(fig)
+st.dataframe(datap2024)   #menampilkan data
+### Opsi Download Data
+@st.cache_data
+def convert_df(datap2024):
+    return datap2024.to_csv().encode('utf-8')
+csv = convert_df(datap2024)
+st.download_button(
+    label = "Unduh Data",
+    data = csv,
+    file_name='download_sekarwangi.csv',
+    mime='text/csv',
+    )
