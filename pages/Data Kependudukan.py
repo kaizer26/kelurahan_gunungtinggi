@@ -99,7 +99,7 @@ st.dataframe(datap2023.iloc[0:16,0:3], use_container_width=True, hide_index=True
 @st.cache_data
 def convert_df(datap2023):
     return datap2023.to_csv().encode('utf-8')
-csv2 = convert_df(datap2023)
+csv2 = convert_df2(datap2023)
 st.download_button(
     label = "Unduh Data",
     data = csv2,
