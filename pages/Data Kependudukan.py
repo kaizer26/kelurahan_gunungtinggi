@@ -65,7 +65,7 @@ st.download_button(
     mime='text/csv',
     )
 
-url3 = https://docs.google.com/spreadsheets/d/196eZm3CzaY1FIapq0nnWBc18dFz0yXxtPrxtlYaqRLc/edit?usp=sharing
+url3 = 'https://docs.google.com/spreadsheets/d/196eZm3CzaY1FIapq0nnWBc18dFz0yXxtPrxtlYaqRLc/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
 datap2023 = conn.read(spreadsheet=url3)
 datap2023 = pd.DataFrame(datap2023)                       #convert ke panda df
