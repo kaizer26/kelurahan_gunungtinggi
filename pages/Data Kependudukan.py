@@ -64,3 +64,45 @@ st.download_button(
     file_name='download_cibiruwetan.csv',
     mime='text/csv',
     )
+
+url3 = https://docs.google.com/spreadsheets/d/196eZm3CzaY1FIapq0nnWBc18dFz0yXxtPrxtlYaqRLc/edit?usp=sharing
+conn  = st.connection("gsheets", type=GSheetsConnection)
+datap2023 = conn.read(spreadsheet=url3)
+datap2023 = pd.DataFrame(datap2023)                       #convert ke panda df
+jp2023=datap2023.iloc[0:16,1:3].sum().sum()
+
+datapiramida2 = datap2023.iloc[0:16,1:3]
+jk = list(["Laki-laki","Perempuan"])
+datapiramida2.iloc[0:16,0]=-datapiramida2.iloc[0:16,0]
+datapiramida2.index = list(datap2023.iloc[0:16,0])
+datapiramida2.columns = jk
+
+# Convert wide-form data to long-form
+# See: https://altair-viz.github.io/user_guide/data.html#long-form-vs-wide-form-data
+data2 = pd.melt(datapiramida2.reset_index(), id_vars=["index"])
+
+# Horizontal stacked bar chart
+chart2 = (
+    alt.Chart(data2)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title=""),
+    )
+)
+
+st.altair_chart(chart2, use_container_width=True)   #bikin piramida chart
+
+st.dataframe(datap2023.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
+### Opsi Download Data
+@st.cache_data
+def convert_df(datap2023):
+    return datap2023.to_csv().encode('utf-8')
+csv = convert_df(datap2023)
+st.download_button(
+    label = "Unduh Data",
+    data = csv,
+    file_name='download_cibiruwetan.csv',
+    mime='text/csv',
+    )
