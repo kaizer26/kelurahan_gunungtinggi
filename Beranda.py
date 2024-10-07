@@ -30,7 +30,7 @@ t2.markdown(" **website:** https://cibiruwetan.desa.id **| email:** desawisataci
 st.write("# Rekap Penduduk Desa Cibiru Wetan")
 
 url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
-conn  = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn  = st.connection("gsheets", type=GSheetsConnection)
 datap2024 = conn.read(spreadsheet=url2)
 datap2024 = pd.DataFrame(datap2024)                       #convert ke panda df
 jp2024=datap2024.iloc[0:16,1:3].sum().sum()
@@ -89,7 +89,7 @@ with st.sidebar:
 
 ### Import Data Lengkap
 url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
-conn  = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn  = st.connection("gsheets", type=GSheetsConnection)
 datadesa = conn.read(spreadsheet=url)
 datadesa1 = pd.DataFrame(datadesa.iloc[0:12,0:2])                       #convert ke panda df
 desa = datadesa1.style.hide_index()                      #menyembunyikan nomor tabel
