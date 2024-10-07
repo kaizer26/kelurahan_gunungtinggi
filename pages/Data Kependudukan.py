@@ -52,7 +52,7 @@ chart = (
 
 st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
 
-st.dataframe(datap2024, use_container_width=True)   #menampilkan data
+st.dataframe(datap2024, use_container_width=True, hide_index=True)   #menampilkan data
 ### Opsi Download Data
 @st.cache_data
 def convert_df(datap2024):
