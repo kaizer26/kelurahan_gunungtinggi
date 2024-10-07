@@ -92,8 +92,8 @@ url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17o
 conn  = st.connection("gsheets", type=GSheetsConnection)
 datadesa = conn.read(spreadsheet=url)
 datadesa1 = pd.DataFrame(datadesa.iloc[0:12,0:2])                       #convert ke panda df
-desa = datadesa1.style.hide()                      #menyembunyikan nomor tabel
-#desa.hide_columns()                                     #menyembunyikan header
+desa = datadesa1.style.hide(axis=0).hide(axis=1)                      #menyembunyikan nomor tabel dan header
+
 st.write(desa.to_html(),unsafe_allow_html=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Peta Lokasi Desa Cibiru Wetan")
@@ -121,8 +121,8 @@ st.pydeck_chart(pdk.Deck(
 )
 
 datadesa2 = pd.DataFrame(datadesa.iloc[12:18,0:2])                       #convert ke panda df
-desa2 = datadesa2.style.hide()                      #menyembunyikan nomor tabel
-#desa2.hide_columns()                                     #menyembunyikan header
+desa2 = datadesa2.style.hide(axis=0).hide(axis=1)                    #menyembunyikan nomor tabel dan header
+
 st.write(desa2.to_html(),unsafe_allow_html=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Kunjungi Kami")
