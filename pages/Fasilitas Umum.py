@@ -1,44 +1,65 @@
 import streamlit as st
 import pandas as pd
+from streamlit_gsheets import GSheetsConnection
 
-### Import Data
-dataumkm = pd.read_excel("C:/Users/wella/Documents/Asha/SMT7/magang/DESA SEKARWANGI/Data UMKM Sekarwangi_ready.xlsx")
-type(dataumkm)
-dataumkm["NIK"] = dataumkm["NIK"].astype("string")
-dataumkm["No HP"] = dataumkm["No HP"].astype("string")
-dataumkm['RW'] = dataumkm['ALAMAT'].str[-5:]
-dataumkm['RT'] = dataumkm['ALAMAT'].str[-11:]
-df = pd.DataFrame(dataumkm)
+st.set_page_config(
+    page_title="Data Kependudukan",
+    page_icon=":family:",
+)
 
-### Pivot Table
-st.subheader("Pivot Table")
+#this is the header
+t1, t2 = st.columns((0.25,1))
 
-a = st.sidebar.radio('Jumlah Karakteristik yang Ingin Ditampilkan:', [1, 2])
+t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 120)
+t2.title("Desa Cibiru Wetan")
+t2.write("**Data Kependudukan**")
+t2.markdown(" **website:** https://cibiruwetan.desa.id **| email:** desawisatacibiruwetan@gmail.com")
 
-if a == 1:
-    kolom_1 = st.selectbox("Pilih Karakteristik", dataumkm.columns, index=7)
-    pivot = df.pivot_table(index = [kolom_1],
-                             values = ['NAMA PEMILIK'],
-                             aggfunc = "count"
-                             )
-    pivot.rename(columns = {'NAMA PEMILIK':'JUMLAH'}, inplace = True)
-    st.write(pivot)
-elif a== 2:
-    kolom_1 = st.selectbox("Pilih Karakteristik Pertama", dataumkm.columns, index=7)
-    kolom_2 = st.selectbox("Pilih Karakteristik Kedua", dataumkm.columns, index=17)
-    pivot = df.pivot_table(index = [kolom_1,kolom_2],
-                             values = ['NAMA PEMILIK'],
-                             aggfunc = "count"
-                             )
-    pivot.rename(columns = {'NAMA PEMILIK':'JUMLAH'}, inplace = True)
-    st.write(pivot)
 
+#this is content
+ #st.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2023/01/branding-cibiru-wetan-WISATA-1-800x197.png')
+st.write("# Piramida Penduduk Tahun 2024")
+
+### Import Data Lengkap
+url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
+conn  = st.experimental_connection("gsheets", type=GSheetsConnection)
+datap2024 = conn.read(spreadsheet=url2)
+datap2024 = pd.DataFrame(datap2024)                       #convert ke panda df
+jp2024=datap2024.iloc[0:16,1:3].sum().sum()
+
+datapiramida = datap2024.iloc[0:16,1:3]
+jk = list(["Laki-laki","Perempuan"])
+datapiramida.iloc[0:16,0]=-datapiramida.iloc[0:16,0]
+datapiramida.index = list(datap2024.iloc[0:16,0])
+datapiramida.columns = jk
+#st.bar_chart(datapiramida)
+
+import altair as alt
+# Convert wide-form data to long-form
+# See: https://altair-viz.github.io/user_guide/data.html#long-form-vs-wide-form-data
+data = pd.melt(datapiramida.reset_index(), id_vars=["index"])
+
+# Horizontal stacked bar chart
+chart = (
+    alt.Chart(data)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title=""),
+    )
+)
+
+st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
+
+st.dataframe(datap2024)   #menampilkan data
+### Opsi Download Data
 @st.cache_data
-def convert_df(pivot):
-    return pivot.to_csv().encode('utf-8')
-csv = convert_df(pivot)
+def convert_df(datap2024):
+    return datap2024.to_csv().encode('utf-8')
+csv = convert_df(datap2024)
 st.download_button(
-    label = "Unduh Tabel",
+    label = "Unduh Data",
     data = csv,
     file_name='download_sekarwangi.csv',
     mime='text/csv',
