@@ -55,12 +55,12 @@ st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
 st.dataframe(datap2024, use_container_width=True, hide_index=True)   #menampilkan data
 ### Opsi Download Data
 @st.cache_data
-def convert_df(datap2024):
-    return datap2024.to_csv().encode('utf-8')
-csv = convert_df(datap2024)
+def convert_df(datap2024.iloc[0:16,0]):
+    return datap2024.iloc[0:16,0].to_csv().encode('utf-8')
+csv = convert_df(datap2024.iloc[0:16,0])
 st.download_button(
     label = "Unduh Data",
     data = csv,
-    file_name='download_sekarwangi.csv',
+    file_name='download_cibiruwetan.csv',
     mime='text/csv',
     )
