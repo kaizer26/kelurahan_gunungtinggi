@@ -95,14 +95,3 @@ chart2 = (
 st.altair_chart(chart2, use_container_width=True)   #bikin piramida chart
 
 st.dataframe(datap2023.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
-### Opsi Download Data
-@st.cache_data
-def convert_data(datap2023):
-    return datap2023.to_csv().encode('utf-8')
-csv2 = convert_data(datap2023)
-st.download_button(
-    label = "Unduh Data",
-    data = csv2,
-    file_name='download_cibiruwetan.csv',
-    mime='text/csv',
-    )
