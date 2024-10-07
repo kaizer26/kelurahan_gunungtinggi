@@ -22,7 +22,7 @@ st.write("# Piramida Penduduk Tahun 2024")
 
 ### Import Data Lengkap
 url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
-conn  = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn  = st.connection("gsheets", type=GSheetsConnection)
 datap2024 = conn.read(spreadsheet=url2)
 datap2024 = pd.DataFrame(datap2024)                       #convert ke panda df
 jp2024=datap2024.iloc[0:16,1:3].sum().sum()
