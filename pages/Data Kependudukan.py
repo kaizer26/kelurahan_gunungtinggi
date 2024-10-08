@@ -142,6 +142,36 @@ st.write('# Pekerjaan Penduduk Tahun 2023')
 kerja23.index = list(kerja23.iloc[0:13,0])
 kerja23 = kerja23.iloc[0:13,1:4]
 #st.bar_chart(kerja23.iloc[0:13,0].T)
+
+datatp1 = kerja23.iloc[0:13,0]
+datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp1 = (
+    alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+datatp2 = kerja23.iloc[0:13,1]
+datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp2 = (
+    alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+
+tp1,tp2 = st.columns((1,1))
+tp1.altair_chart(charttp1)   
+tp2.altair_chart(charttp2)   
+
 st.dataframe(kerja23,use_container_width=True)
 
 st.write('# Pendidikan Tenaga Kerja Tahun 2023')
