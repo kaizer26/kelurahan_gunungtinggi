@@ -42,12 +42,12 @@ chart = (
 )
 st.altair_chart(chart, use_container_width=True)   
 
-st.write('# Luas Lahan Tanaman Pangan Berdasarkan Komoditas')
+st.write('## Tanaman Pangan Berdasarkan Komoditas')
 datatp1 = pt23.iloc[0:31,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp1 = (
-    alt.Chart(datatp1)
+    alt.Chart(datatp1,title=alt.TitleParams('Luas Lahan (Ha)', anchor='middle'))
     .mark_bar()
     .encode(
         x=alt.X("value", type="quantitative", title=""),
@@ -59,7 +59,7 @@ datatp2 = pt23.iloc[0:31,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp2 = (
-    alt.Chart(datatp2)
+    alt.Chart(datatp2,title=alt.TitleParams('Hasil Panen (Ton/Ha)', anchor='middle'))
     .mark_bar()
     .encode(
         x=alt.X("value", type="quantitative", title=""),
@@ -72,12 +72,12 @@ tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
 tp2.altair_chart(charttp2)   
 
-st.write('# Luas Lahan Tanaman Buah-buahan Berdasarkan Komoditas')
+st.write('## Tanaman Buah-buahan Berdasarkan Komoditas')
 datatp1 = pt23.iloc[31:58,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp1 = (
-    alt.Chart(datatp1)
+    alt.Chart(datatp1,title=alt.TitleParams('Luas Lahan (Ha)', anchor='middle'))
     .mark_bar()
     .encode(
         x=alt.X("value", type="quantitative", title=""),
@@ -89,7 +89,7 @@ datatp2 = pt23.iloc[31:58,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp2 = (
-    alt.Chart(datatp2)
+    alt.Chart(datatp2,title=alt.TitleParams('Hasil Panen (Ton/Ha)', anchor='middle'))
     .mark_bar()
     .encode(
         x=alt.X("value", type="quantitative", title=""),
@@ -102,12 +102,12 @@ tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
 tp2.altair_chart(charttp2)  
 
-st.write('# Luas Lahan Perkebunan Berdasarkan Komoditas')
+st.write('## Perkebunan Berdasarkan Komoditas')
 datatp1 = pt23.iloc[58:65,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp1 = (
-    alt.Chart(datatp1)
+    alt.Chart(datatp1,title=alt.TitleParams('Luas Lahan (Ha)', anchor='middle'))
     .mark_bar()
     .encode(
         x=alt.X("value", type="quantitative", title=""),
@@ -119,7 +119,7 @@ datatp2 = pt23.iloc[58:65,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp2 = (
-    alt.Chart(datatp2)
+    alt.Chart(datatp2,title=alt.TitleParams('Hasil Panen (Ton/Ha)', anchor='middle'))
     .mark_bar()
     .encode(
         x=alt.X("value", type="quantitative", title=""),
