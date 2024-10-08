@@ -7,7 +7,6 @@ Created on Wed Oct  4 11:54:31 2023
 
 import streamlit as st
 import pandas as pd
-import numpy as np
 from streamlit_gsheets import GSheetsConnection
 
 st.set_page_config(
@@ -89,11 +88,10 @@ with st.sidebar:
 
 ### Import Data Lengkap
 url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
-conn  = st.connection("gsheets", type=GSheetsConnection)
+
 datadesa = conn.read(spreadsheet=url)
 datadesa1 = pd.DataFrame(datadesa.iloc[0:12,0:2])                       #convert ke panda df
-desa = datadesa1.style.hide(axis=0).hide(axis=1)                      #menyembunyikan nomor tabel dan header
-
+desa = datadesa1.style.hide(axis=0).hide(axis=1)                     #menyembunyikan nomor tabel dan header                                   #menyembunyikan header
 st.write(desa.to_html(),unsafe_allow_html=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Peta Lokasi Desa Cibiru Wetan")
@@ -119,10 +117,11 @@ st.pydeck_chart(pdk.Deck(
 )
 )
 )
+urlmaps = 'https://maps.app.goo.gl/EqKfyTcDpfHrS4pa8'
+st.write(" [lihat di Google Maps](%s)"%urlmaps)
 
 datadesa2 = pd.DataFrame(datadesa.iloc[12:18,0:2])                       #convert ke panda df
-desa2 = datadesa2.style.hide(axis=0).hide(axis=1)                    #menyembunyikan nomor tabel dan header
-
+desa2 = datadesa2.style.hide(axis=0).hide(axis=1)                        #menyembunyikan header dan nomor tabel
 st.write(desa2.to_html(),unsafe_allow_html=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Kunjungi Kami")
@@ -130,6 +129,3 @@ url_ig = 'https:/instagram.com/desa_cibiruwetan'
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
 st.write(" **instagram** : [desa_cibiruwetan](%s)" % url_ig)
 st.write(" **youtube** : [Humas Desa Cibiru Wetan](%s)" % url_yt)
-
-
-
