@@ -25,16 +25,19 @@ lahan23.index = list(lahan23.iloc[0:3,0])
 lahan23 = lahan23.iloc[0:3,1:2]
 pt23 = pt23.iloc[0:65,0:3]
 
-sizes = [2,2]
-label = "L","P"
 st.write(sizes)
 st.write(label)
 
 import matplotlib.pyplot as plt
 #label = list((lahan23.index))
 #sizes = list(lahan23.iloc[0:3,0])
+import matplotlib.pyplot as plt
+
+labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+sizes = [15, 30, 45, 10]
+
 fig, ax = plt.subplots()
-ax.pie(sizes, labels=label)
+ax.pie(sizes, labels=labels)
 
 #st.bar_chart(lahan23)
 
