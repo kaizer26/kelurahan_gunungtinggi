@@ -72,6 +72,67 @@ tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
 tp2.altair_chart(charttp2)   
 
+st.write('# Luas Lahan Tanaman Buah-buahan Berdasarkan Komoditas')
+datatp1 = pt23.iloc[30:57,0]
+datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp1 = (
+    alt.Chart(datatp1)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+datatp2 = pt23.iloc[30:57,1]
+datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp2 = (
+    alt.Chart(datatp2)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+
+tp1,tp2 = st.columns((1,1))
+tp1.altair_chart(charttp1)   
+tp2.altair_chart(charttp2)  
+
+st.write('# Luas Lahan Perkebunan Berdasarkan Komoditas')
+datatp1 = pt23.iloc[58:64,0]
+datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp1 = (
+    alt.Chart(datatp1)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+datatp2 = pt23.iloc[58:64,1]
+datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp2 = (
+    alt.Chart(datatp2)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+
+tp1,tp2 = st.columns((1,1))
+tp1.altair_chart(charttp1)   
+tp2.altair_chart(charttp2)  
+
+
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
     st.header("Dashboard Data Fasilitas Umum Desa Cibiru Wetan")
