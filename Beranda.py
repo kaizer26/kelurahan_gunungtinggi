@@ -101,7 +101,7 @@ url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17o
 datadesa = conn.read(spreadsheet=url)
 datadesa1 = pd.DataFrame(datadesa.iloc[0:12,0:2])                       #convert ke panda df
 desa = datadesa1.style.hide(axis=0).hide(axis=1)                     #menyembunyikan nomor tabel dan header                                   #menyembunyikan header
-st.write(desa.to_html(),unsafe_allow_html=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
+st.write(desa.to_html(),unsafe_allow_html=True,use_container_width=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Peta Lokasi Desa Cibiru Wetan")
 mapdata = pd.DataFrame([
@@ -131,7 +131,7 @@ st.write(" [lihat di Google Maps](%s)"%urlmaps)
 
 datadesa2 = pd.DataFrame(datadesa.iloc[12:18,0:2])                       #convert ke panda df
 desa2 = datadesa2.style.hide(axis=0).hide(axis=1)                        #menyembunyikan header dan nomor tabel
-st.write(desa2.to_html(),unsafe_allow_html=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
+st.write(desa2.to_html(),unsafe_allow_html=True,use_container_width=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Kunjungi Kami")
 url_ig = 'https:/instagram.com/desa_cibiruwetan'
