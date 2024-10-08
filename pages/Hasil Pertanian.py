@@ -25,8 +25,8 @@ lahan23.index = list(lahan23.iloc[0:3,0])
 lahan23 = lahan23.iloc[0:3,1:2]
 pt23 = pt23.iloc[0:65,0:3]
 
-st.write(sizes)
-st.write(label)
+#st.write(sizes)
+#st.write(label)
 
 #label = list((lahan23.index))
 #sizes = list(lahan23.iloc[0:3,0])
