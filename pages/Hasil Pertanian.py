@@ -26,7 +26,7 @@ lahan23 = lahan23.iloc[0:3,1:2]
 pt23 = pt23.iloc[0:65,0:3]
 
 sizes = [2,2]
-label = ["L","P"]
+label = "L","P"
 st.write(sizes)
 st.write(label)
 
