@@ -25,7 +25,10 @@ lahan23.index = list(lahan23.iloc[0:3,0])
 lahan23 = lahan23.iloc[0:3,1:2]
 pt23 = pt23.iloc[0:65,0:3]
 
-st.write(list(lahan23.iloc[0:3,0]))
+st.write(list(lahan23.index))
+
+label = list((lahan23.index))
+sizes = list(lahan23.iloc[0:3,0])
 #st.bar_chart(lahan23)
 import matplotlib.pyplot as plt
 
