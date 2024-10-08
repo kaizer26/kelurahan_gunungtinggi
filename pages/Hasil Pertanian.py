@@ -68,9 +68,9 @@ charttp2 = (
     )
 )
 
-tp1,tp2 = st.columns(1,1)
-tp1.altair_chart(charttp1, use_container_width=True)   
-tp2.altair_chart(charttp2, use_container_width=True)   
+tp1,tp2 = st.columns((1,1))
+tp1.altair_chart(charttp1)   
+tp2.altair_chart(charttp2)   
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
