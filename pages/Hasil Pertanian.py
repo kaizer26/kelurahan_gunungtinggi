@@ -43,7 +43,22 @@ ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
 st.pyplot(fig1)
-st.bar_chart(lahan23)
+
+import altair as alt
+data = pd.melt(lahan23.reset_index(), id_vars=["index"])
+
+# Horizontal stacked bar chart
+chart = (
+    alt.Chart(data)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title=""),
+    )
+)
+
+st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
 
 
 with st.sidebar:
