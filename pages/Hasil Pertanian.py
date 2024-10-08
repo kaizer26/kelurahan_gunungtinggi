@@ -55,7 +55,7 @@ charttp1 = (
         color=alt.Color("variable", type="nominal", title=""),
     )
 )
-datatp2 = pt23.iloc[31:57,0]
+datatp2 = pt23.iloc[0:30,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp2 = (
