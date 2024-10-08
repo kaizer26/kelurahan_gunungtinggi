@@ -43,7 +43,7 @@ chart = (
 st.altair_chart(chart, use_container_width=True)   
 
 st.write('# Luas Lahan Tanaman Pangan Berdasarkan Komoditas')
-datatp1 = pt23.iloc[0:30,0]
+datatp1 = pt23.iloc[0:31,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp1 = (
@@ -55,7 +55,7 @@ charttp1 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
-datatp2 = pt23.iloc[0:30,1]
+datatp2 = pt23.iloc[0:31,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp2 = (
@@ -73,7 +73,7 @@ tp1.altair_chart(charttp1)
 tp2.altair_chart(charttp2)   
 
 st.write('# Luas Lahan Tanaman Buah-buahan Berdasarkan Komoditas')
-datatp1 = pt23.iloc[31:57,0]
+datatp1 = pt23.iloc[31:58,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp1 = (
@@ -85,7 +85,7 @@ charttp1 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
-datatp2 = pt23.iloc[31:57,1]
+datatp2 = pt23.iloc[31:58,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp2 = (
@@ -103,7 +103,7 @@ tp1.altair_chart(charttp1)
 tp2.altair_chart(charttp2)  
 
 st.write('# Luas Lahan Perkebunan Berdasarkan Komoditas')
-datatp1 = pt23.iloc[58:64,0]
+datatp1 = pt23.iloc[58:65,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp1 = (
@@ -115,7 +115,7 @@ charttp1 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
-datatp2 = pt23.iloc[58:64,1]
+datatp2 = pt23.iloc[58:65,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp2 = (
