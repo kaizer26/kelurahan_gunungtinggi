@@ -25,28 +25,9 @@ lahan23.index = list(lahan23.iloc[0:3,0])
 lahan23 = lahan23.iloc[0:3,1:2]
 pt23 = pt23.iloc[0:65,0:3]
 
-#st.write(sizes)
-#st.write(label)
-
-labels = list((lahan23.index))
-sizes = list(lahan23.iloc[0:3,0])
-import matplotlib.pyplot as plt
-
-# Pie chart, where the slices will be ordered and plotted counter-clockwise:
-#labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
-#sizes = [15, 30, 45, 10]
-#explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
-
-fig1, ax1 = plt.subplots()
-ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
-        shadow=True, startangle=90)
-ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-
-st.pyplot(fig1)
-
 import altair as alt
+st.write('# Luas Lahan Pertanian dan Perkebunan Berdasarkan Jenis Produksi')
 data = pd.melt(lahan23.reset_index(), id_vars=["index"])
-
 # Horizontal stacked bar chart
 chart = (
     alt.Chart(data)
@@ -57,9 +38,10 @@ chart = (
         color=alt.Color("variable", type="nominal", title=""),
     )
 )
+st.altair_chart(chart, use_container_width=True)   
 
-st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
-
+st.write('# Luas Lahan Tanaman Pangan Berdasarkan Komoditas')
+st.bar_chart(pt23)
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
