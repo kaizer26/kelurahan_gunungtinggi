@@ -37,6 +37,7 @@ sizes = [15, 30, 45, 10]
 
 fig, ax = plt.subplots()
 ax.pie(sizes, labels=labels)
+st.pyplot(fig)
 
 #st.bar_chart(lahan23)
 
