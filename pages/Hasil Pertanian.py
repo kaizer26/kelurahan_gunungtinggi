@@ -31,7 +31,6 @@ st.write(label)
 import matplotlib.pyplot as plt
 #label = list((lahan23.index))
 #sizes = list(lahan23.iloc[0:3,0])
-import matplotlib.pyplot as plt
 
 labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 sizes = [15, 30, 45, 10]
