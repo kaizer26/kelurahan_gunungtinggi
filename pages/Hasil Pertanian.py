@@ -35,8 +35,8 @@ chart = (
     alt.Chart(data)
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        x=alt.X("value", type="quantitative", title="",sort="descending"),
+        y=alt.Y("index", type="nominal", title=""),
         color=alt.Color("variable", type="nominal", title=""),
     )
 )
@@ -50,8 +50,8 @@ charttp1 = (
     alt.Chart(datatp1)
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        x=alt.X("value", type="quantitative", title="",sort="descending"),
+        y=alt.Y("index", type="nominal", title=""),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
@@ -62,8 +62,8 @@ charttp2 = (
     alt.Chart(datatp2)
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        x=alt.X("value", type="quantitative", title="",,sort="descending"),
+        y=alt.Y("index", type="nominal", title=""),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
@@ -80,8 +80,8 @@ charttp1 = (
     alt.Chart(datatp1)
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        x=alt.X("value", type="quantitative", title="",sort="descending"),
+        y=alt.Y("index", type="nominal", title=""),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
@@ -92,8 +92,8 @@ charttp2 = (
     alt.Chart(datatp2)
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        x=alt.X("value", type="quantitative", title="",sort="descending"),
+        y=alt.Y("index", type="nominal", title=""),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
@@ -110,8 +110,8 @@ charttp1 = (
     alt.Chart(datatp1)
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        x=alt.X("value", type="quantitative", title="",sort="descending"),
+        y=alt.Y("index", type="nominal", title=""),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
@@ -122,8 +122,8 @@ charttp2 = (
     alt.Chart(datatp2)
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        x=alt.X("value", type="quantitative", title="",sort="descending"),
+        y=alt.Y("index", type="nominal", title=""),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
