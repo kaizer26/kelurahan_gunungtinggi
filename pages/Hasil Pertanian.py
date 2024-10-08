@@ -43,7 +43,34 @@ chart = (
 st.altair_chart(chart, use_container_width=True)   
 
 st.write('# Luas Lahan Tanaman Pangan Berdasarkan Komoditas')
-st.bar_chart(pt23)
+datatp1 = pt23.iloc[0:30,0]
+datatp1 = pd.melt(lahan23.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp1 = (
+    alt.Chart(datatp1)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title=""),
+    )
+)
+datatp2 = pt23.iloc[31:57,0]
+datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp2 = (
+    alt.Chart(datatp2)
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title=""),
+    )
+)
+
+tp1,tp2 = st.columns(1,1)
+tp1.altair_chart(charttp1, use_container_width=True)   
+tp2.altair_chart(charttp2, use_container_width=True)   
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
