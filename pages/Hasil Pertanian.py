@@ -44,7 +44,7 @@ st.altair_chart(chart, use_container_width=True)
 
 st.write('# Luas Lahan Tanaman Pangan Berdasarkan Komoditas')
 datatp1 = pt23.iloc[0:30,0]
-datatp1 = pd.melt(lahan23.reset_index(), id_vars=["index"])
+datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 # Horizontal stacked bar chart
 charttp1 = (
     alt.Chart(datatp1)
