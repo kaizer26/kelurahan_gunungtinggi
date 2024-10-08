@@ -23,9 +23,9 @@ lahan23 = pt23.iloc[68:73,0:2]
 lahan23.index = list(lahan23.iloc[0:3,0])
 #lahan23.columns = "luas"
 lahan23 = lahan23.iloc[0:3,1:2]
-pt23 = pt23.iloc[0:65,0:3]
+pt23 = pt23.iloc[0:65,0:4]
 pt23.index = list(pt23.iloc[0:65,0])
-pt23 = pt23.iloc[0:65,1:3]
+pt23 = pt23.iloc[0:65,1:4]
 
 import altair as alt
 st.write('# Luas Lahan Pertanian dan Perkebunan Berdasarkan Jenis Produksi')
