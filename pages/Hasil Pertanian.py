@@ -27,10 +27,14 @@ pt23 = pt23.iloc[0:65,0:3]
 
 st.write(list(lahan23.index))
 
+import matplotlib.pyplot as plt
 label = list((lahan23.index))
 sizes = list(lahan23.iloc[0:3,0])
+fig, ax = plt.subplots()
+ax.pie(sizes, labels=labels)
+
 #st.bar_chart(lahan23)
-import matplotlib.pyplot as plt
+
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
