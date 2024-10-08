@@ -62,7 +62,7 @@ charttp2 = (
     alt.Chart(datatp2)
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title="",,sort="descending"),
+        x=alt.X("value", type="quantitative", title="",sort="descending"),
         y=alt.Y("index", type="nominal", title=""),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
