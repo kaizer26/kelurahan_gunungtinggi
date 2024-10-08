@@ -29,7 +29,7 @@ pt23 = pt23.iloc[0:65,0:3]
 import matplotlib.pyplot as plt
 
 labels = list(lahan23.index)
-sizes = list(lahan23.iloc[0:3,0:1])
+sizes = list(lahan23.iloc[0:3,0])
 
 fig, ax = plt.subplots()
 ax.pie(sizes, labels=labels)
