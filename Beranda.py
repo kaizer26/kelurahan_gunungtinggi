@@ -64,12 +64,21 @@ pd2024pere = int(datap2024.iloc[0:16,2:3].sum().sum())
 lakipere2024 = pd.DataFrame({"laki":[pd2024laki],"perempuan":[pd2024pere]})
 lakipere2024.columns = list(["Laki-laki","Perempuan"])
 
+m1, m2, m3 = st.columns((1,1,1))
+m1.write("")
+m2.metric(label = 'Total KK',value = "📋"+str(int(datap2024.iloc[20,1])))
+m3.write("")
+
+m1, m2, m3 = st.columns((1,1,1))
+m1.write("")
+m2.metric(label ='Total Penduduk (jiwa)',value = "🚻"+str(int(jp2024)))
+m3.write("")
+
 m1, m2, m3, m4 = st.columns((1,1,1,1))
-m1.metric(label = 'Total KK',value = int(datap2024.iloc[20,1]))
-m2.metric(label ='Total Penduduk (jiwa)',value = str(int(jp2024)))
-m3.metric(label ='Penduduk Laki-laki',value = "🚹"+str(int(pd2024laki)))
-m4.metric(label = 'Penduduk Perempuan',value = "🚺"+str(int(pd2024pere)))
-m1.write('')
+m1.write("")
+m2.metric(label ='Penduduk Laki-laki',value = "🚹"+str(int(pd2024laki)))
+m3.metric(label = 'Penduduk Perempuan',value = "🚺"+str(int(pd2024pere)))
+m4.write("")
 
 #import matplotlib.pyplot as plt
 #st.pyplot(lakipere2024)
