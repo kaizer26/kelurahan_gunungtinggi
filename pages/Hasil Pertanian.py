@@ -52,7 +52,7 @@ charttp1 = (
     .encode(
         x=alt.X("value", type="quantitative", title=""),
         y=alt.Y("index", type="nominal", title="",sort="descending"),
-        color=alt.Color("variable", type="nominal", title=""),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
 datatp2 = pt23.iloc[0:30,1]
@@ -64,7 +64,7 @@ charttp2 = (
     .encode(
         x=alt.X("value", type="quantitative", title=""),
         y=alt.Y("index", type="nominal", title="",sort="descending"),
-        color=alt.Color("variable", type="nominal", title=""),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
 
