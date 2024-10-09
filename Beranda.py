@@ -19,9 +19,9 @@ st.set_page_config(
 
 t1, t2 = st.columns((0.25,1))
 
-t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 120)
+t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
 t2.title("Desa Cibiru Wetan")
-t2.markdown(" **Halaman Utama Dashboard Data Desa Cibiru Wetan, Cileunyi** ")
+t2.markdown(" **Halaman Utama Dashboard Data Desa Cibiru Wetan, Cileunyi, Kab. Bandung** ")
 
 
 #this is content
