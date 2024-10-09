@@ -14,13 +14,12 @@ t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon
 t2.title("Desa Cibiru Wetan")
 t2.markdown(" **Halaman Data Kependudukan Desa Cibiru Wetan, Cileunyi, Kab. Bandung** ")
 
-pilih1 = st.radio('Tahun :',[2023,2024])
-
 #this is content
-st.write("# Struktur Penduduk Tahun 2024")
+st.write("# Penduduk Berdasarkan Jenis Kelamin dan Kelompok Usia")
+pilih1 = st.radio('Tahun :',[2024,2023])
 
 ##data penduduk
-### Import Data Lengkap
+### Import tahun 2024
 url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
 datap2024 = conn.read(spreadsheet=url2)
@@ -33,28 +32,7 @@ datapiramida.iloc[0:16,0]=-datapiramida.iloc[0:16,0]
 datapiramida.index = list(datap2024.iloc[0:16,0])
 datapiramida.columns = jk
 
-import altair as alt
-
-
-# Convert wide-form data to long-form
-# See: https://altair-viz.github.io/user_guide/data.html#long-form-vs-wide-form-data
-data = pd.melt(datapiramida.reset_index(), id_vars=["index"])
-# Horizontal stacked bar chart
-chart = (
-    alt.Chart(data)
-    .mark_bar()
-    .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
-        color=alt.Color("variable", type="nominal", title=""),
-    )
-)
-
-st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
-with st.expander("lihat tabel"):
-    st.dataframe(datap2024.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
-
-st.write("# Struktur Penduduk Tahun 2023")
+#Import data 2023
 url3 = 'https://docs.google.com/spreadsheets/d/196eZm3CzaY1FIapq0nnWBc18dFz0yXxtPrxtlYaqRLc/edit?usp=sharing'
 datap2023 = conn.read(spreadsheet=url3)
 datap2023 = pd.DataFrame(datap2023)                       #convert ke panda df
@@ -66,20 +44,40 @@ datapiramida2.iloc[0:16,0]=-datapiramida2.iloc[0:16,0]
 datapiramida2.index = list(datap2023.iloc[0:16,0])
 datapiramida2.columns = jk
 
+import altair as alt
 # Convert wide-form data to long-form
-data2 = pd.melt(datapiramida2.reset_index(), id_vars=["index"])
-chart2 = (
-    alt.Chart(data2)
-    .mark_bar()
-    .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
-        color=alt.Color("variable", type="nominal", title=""),
+# See: https://altair-viz.github.io/user_guide/data.html#long-form-vs-wide-form-data
+if pilih1 ==2024:
+    data = pd.melt(datapiramida.reset_index(), id_vars=["index"])
+    # Horizontal stacked bar chart
+    chart = (
+        alt.Chart(data)
+        .mark_bar()
+        .encode(
+            x=alt.X("value", type="quantitative", title=""),
+            y=alt.Y("index", type="nominal", title="",sort="descending"),
+            color=alt.Color("variable", type="nominal", title=""),
+        )
     )
-)
-st.altair_chart(chart2, use_container_width=True)   #bikin piramida chart
-with st.expander("lihat tabel"):
-    st.dataframe(datap2023.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
+
+    st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
+    with st.expander("lihat tabel"):
+        st.dataframe(datap2024.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
+elif pilih1==2023:
+    # Convert wide-form data to long-form
+    data2 = pd.melt(datapiramida2.reset_index(), id_vars=["index"])
+    chart2 = (
+        alt.Chart(data2)
+        .mark_bar()
+        .encode(
+            x=alt.X("value", type="quantitative", title=""),
+            y=alt.Y("index", type="nominal", title="",sort="descending"),
+            color=alt.Color("variable", type="nominal", title=""),
+        )
+    )
+    st.altair_chart(chart2, use_container_width=True)   #bikin piramida chart
+    with st.expander("lihat tabel"):
+        st.dataframe(datap2023.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
 
 #data pekerjaan
 url4 = 'https://docs.google.com/spreadsheets/d/1wjTtBvxU2a-x0LGEfkX7IaQcN1DhkzJ4ZqRk1DYO8Yw/edit?usp=sharing'
