@@ -10,10 +10,10 @@ st.set_page_config(
 #this is the header
 t1, t2 = st.columns((0.25,1))
 
-t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 120)
+t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
 t2.title("Desa Cibiru Wetan")
 t2.write("**Data Kependudukan**")
-#t2.markdown(" **website:** https://cibiruwetan.desa.id **| email:** desawisatacibiruwetan@gmail.com")
+t2.markdown(" **Halaman Utama Data Kependudukan Desa Cibiru Wetan, Cileunyi, Kab. Bandung** ")
 
 
 #this is content
