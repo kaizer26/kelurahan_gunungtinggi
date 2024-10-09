@@ -93,7 +93,7 @@ datatp1 = stkerja23.iloc[0:2,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 charttp1 = (
     alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
-    .mark_bar()
+    .mark_arc()
     .encode(
         theta=alt.Theta("value", type="quantitative", title=""),
         color=alt.Color("index", type="nominal", title="",legend=None),
@@ -103,7 +103,7 @@ datatp2 = stkerja23.iloc[0:2,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 charttp2 = (
     alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
-    .mark_bar()
+    .mark_arc()
     .encode(
         theta=alt.Theta("value", type="quantitative", title=""),
         color=alt.Color("index", type="nominal", title="",legend=None),
