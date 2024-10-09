@@ -186,6 +186,15 @@ charttp1 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
+text1 = charttp1.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp1 = (charttp1 + text1)
+
 datatp2 = pdik23.iloc[0:6,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 charttp2 = (
@@ -197,6 +206,14 @@ charttp2 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
+text2 = charttp1.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp2 = (charttp2 + text2)
 
 tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
@@ -222,6 +239,15 @@ charttp1 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
+text1 = charttp1.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp1 = (charttp1 + text1)
+
 datatp2 = et23.iloc[0:21,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 charttp2 = (
@@ -233,6 +259,14 @@ charttp2 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
+text2 = charttp1.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp2 = (charttp2 + text2)
 
 tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
@@ -258,6 +292,15 @@ charttp1 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
+text1 = charttp1.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp1 = (charttp1 + text1)
+
 datatp2 = agam23.iloc[0:8,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 charttp2 = (
@@ -269,6 +312,14 @@ charttp2 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
+text2 = charttp1.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp2 = (charttp2 + text2)
 
 tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
