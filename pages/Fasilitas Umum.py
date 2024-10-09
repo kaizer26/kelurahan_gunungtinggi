@@ -33,7 +33,12 @@ if s_ag:
     smaa=fas23.iloc[16,1]
     pta=fas23.iloc[18,1]
 else:
-    tka=0;sda=0;smpa=0;smaa=0;pta=0
+    tka=0
+    sda=0
+    smpa=0
+    smaa=0
+    pta=0
+    
 pd1,pd2,pd3,pd4,pd5 = st.columns((1,1,1,1,1))
 pd1.metric(label='TK',value="🚸"+str(int(fas23.iloc[1,1]+tka)))
 pd2.metric(label='SD',value="🎒"+str(int(fas23.iloc[2,1]+sda)))
