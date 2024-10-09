@@ -83,7 +83,7 @@ m4.write("")
 #import matplotlib.pyplot as plt
 #st.pyplot(lakipere2024)
 
-st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah penduduk Desa Cibiru Wetan pada tahun 2024 semester 1 sebanyak ",int(jp2024)," jiwa dengan penduduk laki-laki sebanyak ",int(pd2024laki)," jiwa dan penduduk perempuan sebanyak",pd2024pere," jiwa.")
+st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun 2024 semester 1 sebanyak ",int(datap2024.iloc[20,1]),". Jumlah penduduk pada periode tersebut sebanyak ",int(jp2024)," jiwa dengan penduduk laki-laki sebanyak ",int(pd2024laki)," jiwa dan penduduk perempuan sebanyak",pd2024pere," jiwa.")
 
 import pydeck as pdk
 st.write("# Profil Desa Cibiru Wetan")
@@ -101,6 +101,7 @@ url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17o
 datadesa = conn.read(spreadsheet=url)
 datadesa1 = pd.DataFrame(datadesa.iloc[0:12,0:2])                       #convert ke panda df
 desa = datadesa1.style.hide(axis=0).hide(axis=1)                     #menyembunyikan nomor tabel dan header                                   #menyembunyikan header
+st.image('https://i.ytimg.com/vi/fw8YWKACQ00/maxresdefault.jpg')
 st.write(desa.to_html(),unsafe_allow_html=True,use_container_width=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Peta Lokasi Desa Cibiru Wetan")
