@@ -96,7 +96,7 @@ charttp1 = (
     .mark_arc()
     .encode(
         theta=alt.Theta("value", type="quantitative", title=""),
-        color=alt.Color("index", type="nominal", title="",legend=None),
+        color=alt.Color("index", type="nominal", title=""),
     )
 )
 datatp2 = stkerja23.iloc[0:2,1]
@@ -106,13 +106,13 @@ charttp2 = (
     .mark_arc()
     .encode(
         theta=alt.Theta("value", type="quantitative", title=""),
-        color=alt.Color("index", type="nominal", title="",legend=None),
+        color=alt.Color("index", type="nominal", title=""),
     )
 )
 
 tp1,tp2 = st.columns((1,1))
-st.altair_chart(charttp1)   
-st.altair_chart(charttp2)   
+tp.altair_chart(charttp1)   
+tp.altair_chart(charttp2)   
 with st.expander("lihat tabel"):
     st.dataframe(stkerja23,use_container_width=True)
 
