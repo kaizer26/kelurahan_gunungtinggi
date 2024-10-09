@@ -21,7 +21,7 @@ t1, t2 = st.columns((0.25,1))
 
 t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 120)
 t2.title("Desa Cibiru Wetan")
-t2.markdown(" **website:** https://cibiruwetan.desa.id **| email:** desawisatacibiruwetan@gmail.com")
+#t2.markdown(" **website:** https://cibiruwetan.desa.id **| email:** desawisatacibiruwetan@gmail.com")
 
 
 #this is content
@@ -136,5 +136,6 @@ st.write(desa2.to_html(),unsafe_allow_html=True,use_container_width=True)       
 st.write("# Kunjungi Kami")
 url_ig = 'https:/instagram.com/desa_cibiruwetan'
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
-st.write(" **instagram** : [desa_cibiruwetan](%s)" % url_ig)
-st.write(" **youtube** : [Humas Desa Cibiru Wetan](%s)" % url_yt)
+url_web = 'https://cibiruwetan.desa.id'
+st.write(" **[instagram]** | (%s)" % url_ig,"**[youtube]** | (%s)" % url_yt,"**[website]** (%s)" % url_web)
+st.write(" **📧: desawisatacibiruwetan@gmail.com**")
