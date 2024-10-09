@@ -99,7 +99,7 @@ elif pilih2 == 'Perempuan':
     datatp1 = stkerja23.iloc[0:2,1]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 charttp1 = (
-    alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
+    alt.Chart(datatp1,title=alt.TitleParams(pilih2, anchor='middle'))
     .mark_arc()
     .encode(
         theta=alt.Theta("value", type="quantitative", title=""),
