@@ -152,6 +152,14 @@ charttp2 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
+text2 = charttp2.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp2 = (charttp2 + text2)
 
 tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
