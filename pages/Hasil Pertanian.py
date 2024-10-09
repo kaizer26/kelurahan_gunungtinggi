@@ -10,10 +10,10 @@ st.set_page_config(
 #this is the header
 t1, t2 = st.columns((0.25,1))
 
-t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 120)
+t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
 t2.title("Desa Cibiru Wetan")
 t2.write("**Data Hasil Pertanian dan Perkebunan Tahun 2023**")
-#t2.markdown(" **website:** https://cibiruwetan.desa.id **| email:** desawisatacibiruwetan@gmail.com")
+t2.markdown(" **Halaman Data Hasil Pertanian dan Perkebunan Desa Cibiru Wetan, Cileunyi, Kab. Bandung** ")
 
 url10='https://docs.google.com/spreadsheets/d/15sfFQbVZUmseAfOv70EXI4pe3wUusL9OvfeOex43ueg/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
