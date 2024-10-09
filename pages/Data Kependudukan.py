@@ -181,6 +181,36 @@ pdik23 = pd.DataFrame(pdik23)
 pdik23 = pdik23.iloc[0:6,0:3]
 pdik23.index = list(pdik23.iloc[0:6,0])
 pdik23 = pdik23.iloc[0:6,1:3]
+
+datatp1 = pdik23.iloc[0:6,0]
+datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp1 = (
+    alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+datatp2 = pdik23.iloc[0:6,1]
+datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp2 = (
+    alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+
+tp1,tp2 = st.columns((1,1))
+tp1.altair_chart(charttp1)   
+tp2.altair_chart(charttp2)   
+
 st.dataframe(pdik23,use_container_width=True)
 
 st.write('# Etnis Penduduk Tahun 2023')
@@ -189,6 +219,36 @@ et23 = conn.read(spreadsheet=url6)
 et23 = pd.DataFrame(et23)
 et23.index = list(et23.iloc[0:21,0])
 et23 = et23.iloc[0:21,1:3]
+
+datatp1 = et23.iloc[0:21,0]
+datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp1 = (
+    alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+datatp2 = et23.iloc[0:21,1]
+datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp2 = (
+    alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+
+tp1,tp2 = st.columns((1,1))
+tp1.altair_chart(charttp1)   
+tp2.altair_chart(charttp2)   
+
 st.dataframe(et23,use_container_width=True)
 
 st.write('# Agama Penduduk Tahun 2023')
@@ -197,6 +257,36 @@ agam23 = conn.read(spreadsheet=url7)
 agam23 = pd.DataFrame(agam23)
 agam23.index = list(agam23.iloc[0:9,0])
 agam23 = agam23.iloc[0:8,1:4]
+
+datatp1 = agam23.iloc[0:8,0]
+datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp1 = (
+    alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+datatp2 = agam23.iloc[0:8,1]
+datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
+# Horizontal stacked bar chart
+charttp2 = (
+    alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+
+tp1,tp2 = st.columns((1,1))
+tp1.altair_chart(charttp1)   
+tp2.altair_chart(charttp2)   
+
 st.dataframe(agam23,use_container_width=True)
 
 with st.sidebar:
