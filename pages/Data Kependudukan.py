@@ -134,8 +134,8 @@ charttp2 = (
 tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
 tp2.altair_chart(charttp2)   
-
-st.dataframe(stkerja23,use_container_width=True)
+with st.expander:
+    st.dataframe(stkerja23,use_container_width=True)
 
 st.write('# Pekerjaan Penduduk Tahun 2023')
 kerja23.index = list(kerja23.iloc[0:13,0])
