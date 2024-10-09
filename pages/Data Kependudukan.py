@@ -134,7 +134,7 @@ charttp2 = (
 tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
 tp2.altair_chart(charttp2)   
-with st.expander:
+with st.expander("Tabel"):
     st.dataframe(stkerja23,use_container_width=True)
 
 st.write('# Pekerjaan Penduduk Tahun 2023')
