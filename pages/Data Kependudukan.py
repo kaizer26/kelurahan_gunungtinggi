@@ -95,9 +95,8 @@ charttp1 = (
     alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
-        color=alt.Color("variable", type="nominal", title="",legend=None),
+        theta=alt.theta("value", type="quantitative", title=""),
+        color=alt.Color("index", type="nominal", title="",legend=None),
     )
 )
 datatp2 = stkerja23.iloc[0:2,1]
@@ -106,9 +105,8 @@ charttp2 = (
     alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
-        color=alt.Color("variable", type="nominal", title="",legend=None),
+        theta=alt.theta("value", type="quantitative", title=""),
+        color=alt.Color("index", type="nominal", title="",legend=None),
     )
 )
 
