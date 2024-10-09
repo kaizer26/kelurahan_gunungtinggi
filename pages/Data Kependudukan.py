@@ -132,7 +132,7 @@ charttp1 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
-text1 = bars.mark_text(
+text1 = charttp1.mark_text(
     align='left',
     baseline='middle',
     dx=3  # Nudges text to right so it doesn't appear on top of the bar
