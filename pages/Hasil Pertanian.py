@@ -30,7 +30,6 @@ pt23 = pt23.iloc[0:65,1:4]
 import altair as alt
 st.write('# Luas Lahan Pertanian dan Perkebunan Berdasarkan Jenis Produksi')
 data = pd.melt(lahan23.reset_index(), id_vars=["index"])
-# Horizontal stacked bar chart
 chart = (
     alt.Chart(data)
     .mark_bar()
@@ -41,6 +40,12 @@ chart = (
     )
 )
 st.altair_chart(chart, use_container_width=True)   
+
+chart = alt.Chart(data).mark_arc().encode(
+    theta=alt.Theta(field="value", type="quantitative"),
+    color=alt.Color(field="index", type="nominal"),
+)
+st.altair_chart(chart, use_container_width=True)  
 
 st.write('## Tanaman Pangan Berdasarkan Komoditas')
 datatp1 = pt23.iloc[0:31,0]
