@@ -137,5 +137,8 @@ st.write("# Kunjungi Kami")
 url_ig = 'https:/instagram.com/desa_cibiruwetan'
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
 url_web = 'https://cibiruwetan.desa.id'
-st.write(" [instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s)" % url_web)
-st.write(" **📧: desawisatacibiruwetan@gmail.com**")
+
+with st.align('center'):
+    st.write(" [instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s)" % url_web)
+    st.write(" **📧: desawisatacibiruwetan@gmail.com**")
+
