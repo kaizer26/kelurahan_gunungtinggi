@@ -23,12 +23,21 @@ fas23 = fas23.iloc[1:94,0:3]
 
 #this is content
 st.write("# Fasilitas Pendidikan")
+s_ag = st.checkbox("termasuk sekolah keagamaan")           #dengan sekolah agama
+if s_ag:
+    tka=fas23.iloc[13,1]
+    sda=fas23.iloc[14,1]
+    smpa=fas23.iloc[15,1]
+    smaa=fas23.iloc[16,1]
+    pta=fas23.iloc[18,1]
+else:
+    tka=0;sda=0;smpa=0;smaa=0;pta=0
 pd1,pd2,pd3,pd4,pd5 = st.columns((1,1,1,1,1))
-pd1.metric(label='TK',value="🚸"+str(int(fas23.iloc[1,1]+fas23.iloc[13,1])))
-pd2.metric(label='SD',value="🎒"+str(int(fas23.iloc[2,1]+fas23.iloc[14,1])))
-pd3.metric(label='SMP',value="🏫"+str(int(fas23.iloc[3,1]+fas23.iloc[15,1])))
-pd4.metric(label='SMA',value="📘"+str(int(fas23.iloc[4,1]+fas23.iloc[16,1])))
-pd5.metric(label='PT',value="🎓"+str(int(fas23.iloc[5,1]+fas23.iloc[6,1]+fas23.iloc[18,1])))
+pd1.metric(label='TK',value="🚸"+str(int(fas23.iloc[1,1]+tka)))
+pd2.metric(label='SD',value="🎒"+str(int(fas23.iloc[2,1]+sda)))
+pd3.metric(label='SMP',value="🏫"+str(int(fas23.iloc[3,1]+smpa)))
+pd4.metric(label='SMA',value="📘"+str(int(fas23.iloc[4,1]+smaa)))
+pd5.metric(label='PT',value="🎓"+str(int(fas23.iloc[5,1]+fas23.iloc[6,1]+pta)))
 
 st.write("# Fasilitas Kesehatan")
 ks1,ks2,ks3,ks4,ks5 = st.columns((1,1,1,1,1))
