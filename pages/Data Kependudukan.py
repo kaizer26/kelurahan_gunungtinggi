@@ -111,8 +111,8 @@ charttp2 = (
 )
 
 tp1,tp2 = st.columns((1,1))
-tp1.altair_chart(charttp1)   
-tp2.altair_chart(charttp2)   
+st.altair_chart(charttp1)   
+st.altair_chart(charttp2)   
 with st.expander("lihat tabel"):
     st.dataframe(stkerja23,use_container_width=True)
 
