@@ -171,9 +171,9 @@ st.write('# Pendidikan Tenaga Kerja Tahun 2023')
 url5 = 'https://docs.google.com/spreadsheets/d/1BaFB0sFvKIv_e3G8LX_6su-vwDUJKhZLWeE1knU5bT8/edit?usp=sharing'
 pdik23 = conn.read(spreadsheet=url5)
 pdik23 = pd.DataFrame(pdik23)
-pdik23 = pdik23.iloc[0:6,0:3]
+pdik23 = pdik23.iloc[0:6,0:4]
 pdik23.index = list(pdik23.iloc[0:6,0])
-pdik23 = pdik23.iloc[0:6,1:3]
+pdik23 = pdik23.iloc[0:6,1:4]
 
 datatp1 = pdik23.iloc[0:6,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
@@ -226,7 +226,7 @@ url6 = 'https://docs.google.com/spreadsheets/d/1lrJgC7IgzaYUElTEzhix6m2Wz-u-ThN1
 et23 = conn.read(spreadsheet=url6)
 et23 = pd.DataFrame(et23)
 et23.index = list(et23.iloc[0:21,0])
-et23 = et23.iloc[0:20,1:3]
+et23 = et23.iloc[0:20,1:4]
 
 datatp1 = et23.iloc[0:20,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
