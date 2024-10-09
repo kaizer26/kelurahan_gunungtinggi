@@ -95,7 +95,7 @@ charttp1 = (
     alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
     .mark_bar()
     .encode(
-        theta=alt.theta("value", type="quantitative", title=""),
+        theta=alt.Theta("value", type="quantitative", title=""),
         color=alt.Color("index", type="nominal", title="",legend=None),
     )
 )
@@ -105,7 +105,7 @@ charttp2 = (
     alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
     .mark_bar()
     .encode(
-        theta=alt.theta("value", type="quantitative", title=""),
+        theta=alt.Theta("value", type="quantitative", title=""),
         color=alt.Color("index", type="nominal", title="",legend=None),
     )
 )
