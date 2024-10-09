@@ -106,8 +106,8 @@ charttp1 = (
     alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
     .mark_bar()
     .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        x=alt.X("index", type="nominal", title="",sort="descending"),
+        y=alt.Y("value", type="quantitative", title=""),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
