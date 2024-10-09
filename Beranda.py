@@ -138,12 +138,12 @@ url_ig = 'https:/instagram.com/desa_cibiruwetan'
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
 url_web = 'https://cibiruwetan.desa.id'
 
-a1,a2,a3 = st.columns(1,1,1)
+a1,a2,a3 = st.columns((1,1,1))
 a1.write("")
 a2.write("## [instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s)" % url_web)
 a3.write("")
 
-a1,a2,a3 = st.columns(1,1,1)
+a1,a2,a3 = st.columns((1,1,1))
 a1.write("")
 a2.write("## **📧: desawisatacibiruwetan@gmail.com**")
 a3.write("")
