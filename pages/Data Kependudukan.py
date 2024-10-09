@@ -14,6 +14,7 @@ t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon
 t2.title("Desa Cibiru Wetan")
 t2.markdown(" **Halaman Data Kependudukan Desa Cibiru Wetan, Cileunyi, Kab. Bandung** ")
 
+pilih1 = st.radio('Tahun :',[2023,2024])
 
 #this is content
 st.write("# Struktur Penduduk Tahun 2024")
@@ -33,6 +34,8 @@ datapiramida.index = list(datap2024.iloc[0:16,0])
 datapiramida.columns = jk
 
 import altair as alt
+
+
 # Convert wide-form data to long-form
 # See: https://altair-viz.github.io/user_guide/data.html#long-form-vs-wide-form-data
 data = pd.melt(datapiramida.reset_index(), id_vars=["index"])
