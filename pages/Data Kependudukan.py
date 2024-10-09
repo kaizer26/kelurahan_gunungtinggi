@@ -226,9 +226,9 @@ url6 = 'https://docs.google.com/spreadsheets/d/1lrJgC7IgzaYUElTEzhix6m2Wz-u-ThN1
 et23 = conn.read(spreadsheet=url6)
 et23 = pd.DataFrame(et23)
 et23.index = list(et23.iloc[0:21,0])
-et23 = et23.iloc[0:21,1:3]
+et23 = et23.iloc[0:20,1:3]
 
-datatp1 = et23.iloc[0:21,0]
+datatp1 = et23.iloc[0:20,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 charttp1 = (
     alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
@@ -248,7 +248,7 @@ text1 = charttp1.mark_text(
 )
 charttp1 = (charttp1 + text1)
 
-datatp2 = et23.iloc[0:21,1]
+datatp2 = et23.iloc[0:20,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 charttp2 = (
     alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
