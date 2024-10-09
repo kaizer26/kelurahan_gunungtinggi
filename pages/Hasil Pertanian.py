@@ -132,6 +132,8 @@ tp1,tp2 = st.columns((1,1))
 tp1.altair_chart(charttp1)   
 tp2.altair_chart(charttp2)  
 
+st.write('# Tabel Luas Lahan Hasil Pertanian dan Perkebunan')
+st.dataframe(pt23)
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
