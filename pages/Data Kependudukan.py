@@ -89,8 +89,14 @@ kerja23 = kerja23.iloc[0:13,0:4]
 st.write('# Status Pekerjaan Angkatan Kerja Tahun 2023')
 stkerja23.index = list(stkerja23.iloc[0:2,0])
 stkerja23 = stkerja23.iloc[0:2,1:4]
-
-datatp1 = stkerja23.iloc[0:2,0]
+#######
+pilih2 = st.radio("Pilih Jenis Kelamin:",['Laki & Perempuan','Laki-laki','Perempuan'])
+if pilih2 =='Laki & Perempuan':
+    datatp1 = stkerja23.iloc[0:2,2]
+elif pilih2 == 'Laki-laki':
+    datatp1 = stkerja23.iloc[0:2,0]
+elif pilih2 == 'Perempuan':
+    datatp1 = stkerja23.iloc[0:2,1]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 charttp1 = (
     alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
@@ -100,20 +106,7 @@ charttp1 = (
         color=alt.Color("index", type="nominal", title=""),
     )
 )
-datatp2 = stkerja23.iloc[0:2,1]
-datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
-charttp2 = (
-    alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
-    .mark_arc()
-    .encode(
-        theta=alt.Theta("value", type="quantitative", title=""),
-        color=alt.Color("index", type="nominal", title=""),
-    )
-)
-
-tp1,tp2 = st.columns((1,1))
-tp1.altair_chart(charttp1)   
-tp2.altair_chart(charttp2)   
+st.altair_chart(charttp1)   
 with st.expander("lihat tabel"):
     st.dataframe(stkerja23,use_container_width=True)
 
