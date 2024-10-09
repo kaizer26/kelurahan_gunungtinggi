@@ -206,7 +206,7 @@ charttp2 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
-text2 = charttp1.mark_text(
+text2 = charttp2.mark_text(
     align='left',
     baseline='middle',
     dx=3  # Nudges text to right so it doesn't appear on top of the bar
@@ -259,7 +259,7 @@ charttp2 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
-text2 = charttp1.mark_text(
+text2 = charttp2.mark_text(
     align='left',
     baseline='middle',
     dx=3  # Nudges text to right so it doesn't appear on top of the bar
@@ -312,7 +312,7 @@ charttp2 = (
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
-text2 = charttp1.mark_text(
+text2 = charttp2.mark_text(
     align='left',
     baseline='middle',
     dx=3  # Nudges text to right so it doesn't appear on top of the bar
