@@ -138,7 +138,7 @@ url_ig = 'https:/instagram.com/desa_cibiruwetan'
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
 url_web = 'https://cibiruwetan.desa.id'
 
-with st.align('middle'):
-    st.write(" [instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s)" % url_web)
-    st.write(" **📧: desawisatacibiruwetan@gmail.com**")
+st.markdown("<h2 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
+st.write("## [instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s)" % url_web)
+st.write("## **📧: desawisatacibiruwetan@gmail.com**")
 
