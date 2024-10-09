@@ -57,12 +57,12 @@ st.dataframe(datap2024.iloc[0:16,0:3], use_container_width=True, hide_index=True
 def convert_df(datap2024):
     return datap2024.to_csv().encode('utf-8')
 csv = convert_df(datap2024)
-st.download_button(
-    label = "Unduh Data",
-    data = csv,
-    file_name='download_cibiruwetan.csv',
-    mime='text/csv',
-    )
+#st.download_button(
+#    label = "Unduh Data",
+#    data = csv,
+#    file_name='download_cibiruwetan.csv',
+#    mime='text/csv',
+#    )
 
 st.write("# Struktur Penduduk Tahun 2023")
 url3 = 'https://docs.google.com/spreadsheets/d/196eZm3CzaY1FIapq0nnWBc18dFz0yXxtPrxtlYaqRLc/edit?usp=sharing'
