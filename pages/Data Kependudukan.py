@@ -50,17 +50,6 @@ chart = (
 st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
 with st.expander("lihat tabel"):
     st.dataframe(datap2024.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
-### Opsi Download Data
-@st.cache_data
-def convert_df(datap2024):
-    return datap2024.to_csv().encode('utf-8')
-csv = convert_df(datap2024)
-#st.download_button(
-#    label = "Unduh Data",
-#    data = csv,
-#    file_name='download_cibiruwetan.csv',
-#    mime='text/csv',
-#    )
 
 st.write("# Struktur Penduduk Tahun 2023")
 url3 = 'https://docs.google.com/spreadsheets/d/196eZm3CzaY1FIapq0nnWBc18dFz0yXxtPrxtlYaqRLc/edit?usp=sharing'
@@ -106,8 +95,8 @@ charttp1 = (
     alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
     .mark_bar()
     .encode(
-        x=alt.X("index", type="nominal", title="",sort="descending"),
-        y=alt.Y("value", type="quantitative", title=""),
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
