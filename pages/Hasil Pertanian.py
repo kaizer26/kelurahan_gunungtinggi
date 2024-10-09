@@ -21,7 +21,6 @@ pt23 = conn.read(spreadsheet=url10)
 pt23 = pd.DataFrame(pt23)                       #convert ke panda df
 lahan23 = pt23.iloc[68:73,0:2]
 lahan23.index = list(lahan23.iloc[0:3,0])
-#lahan23.columns = "luas"
 lahan23 = lahan23.iloc[0:3,1:2]
 pt23 = pt23.iloc[0:65,0:4]
 pt23.index = list(pt23.iloc[0:65,0])
