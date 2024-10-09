@@ -12,8 +12,8 @@ t1, t2 = st.columns((0.25,1))
 
 t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 120)
 t2.title("Desa Cibiru Wetan")
-t2.write("**Hasil Pertanian dan Perkebunan**")
-t2.markdown(" **website:** https://cibiruwetan.desa.id **| email:** desawisatacibiruwetan@gmail.com")
+t2.write("**Data Hasil Pertanian dan Perkebunan Tahun 2023**")
+#t2.markdown(" **website:** https://cibiruwetan.desa.id **| email:** desawisatacibiruwetan@gmail.com")
 
 url10='https://docs.google.com/spreadsheets/d/15sfFQbVZUmseAfOv70EXI4pe3wUusL9OvfeOex43ueg/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
@@ -133,7 +133,7 @@ tp1.altair_chart(charttp1)
 tp2.altair_chart(charttp2)  
 
 st.write('# Tabel Luas Lahan Hasil Pertanian dan Perkebunan')
-st.dataframe(pt23)
+st.dataframe(pt23,use_container_width=True)
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
