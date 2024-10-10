@@ -61,6 +61,7 @@ if pilih1 ==2024:
     )
 
     st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
+    st.write("Total Penduduk:",jp2024," | Penduduk Laki-laki:",int(datap2024.iloc[0:16,1].sum().sum())," | Penduduk Perempuan:",int(datap2024.iloc[0:16,2].sum().sum()))
     with st.expander("lihat tabel"):
         st.dataframe(datap2024.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
 elif pilih1==2023:
@@ -76,6 +77,7 @@ elif pilih1==2023:
         )
     )
     st.altair_chart(chart2, use_container_width=True)   #bikin piramida chart
+    st.write("Total Penduduk:",jp2023," | Penduduk Laki-laki:",int(datap2023.iloc[0:16,1].sum().sum())," | Penduduk Perempuan:",int(datap2023.iloc[0:16,2].sum().sum()))
     with st.expander("lihat tabel"):
         st.dataframe(datap2023.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
 
@@ -86,7 +88,7 @@ kerja23 = pd.DataFrame(kerja23)
 stkerja23 = kerja23.iloc[16:18,0:4]
 kerja23 = kerja23.iloc[0:13,0:4]
 
-st.write('# Status Pekerjaan Angkatan Kerja Tahun 2023')
+st.write('# Jumlah Angkatan Kerja Berdasarkan Status Pekerjaan Tahun 2023')
 stkerja23.index = list(stkerja23.iloc[0:2,0])
 stkerja23 = stkerja23.iloc[0:2,1:4]
 #######
@@ -119,7 +121,7 @@ st.altair_chart(charttp1,use_container_width=True)
 with st.expander("lihat tabel"):
     st.dataframe(stkerja23,use_container_width=True)
 
-st.write('# Pekerjaan Penduduk Tahun 2023')
+st.write('# Jumlah Penduduk Berdasarkan Jenis Pekerjaan Tahun 2023')
 kerja23.index = list(kerja23.iloc[0:13,0])
 kerja23 = kerja23.iloc[0:13,1:4]
 #######
@@ -190,7 +192,7 @@ st.altair_chart(charttp3,use_container_width=True)
 with st.expander("lihat tabel"):
     st.dataframe(pdik23,use_container_width=True)
 
-st.write('# Etnis Penduduk Tahun 2023')
+st.write('# Jumlah Penduduk Menurut Etnis Tahun 2023')
 url6 = 'https://docs.google.com/spreadsheets/d/1lrJgC7IgzaYUElTEzhix6m2Wz-u-ThN1WXsGRHgMv8s/edit?usp=sharing'
 et23 = conn.read(spreadsheet=url6)
 et23 = pd.DataFrame(et23)
@@ -225,7 +227,7 @@ st.altair_chart(charttp4,use_container_width=True)
 with st.expander("lihat tabel"):
     st.dataframe(et23,use_container_width=True)
 
-st.write('# Agama Penduduk Tahun 2023')
+st.write('# Jumlah Penduduk Menurut Agama Tahun 2023')
 url7 = 'https://docs.google.com/spreadsheets/d/1dUtknRWJL7X_5qOs0zLF4zbFH2B4qPjyjkI6SMUxzwY/edit?usp=sharing'
 agam23 = conn.read(spreadsheet=url7)
 agam23 = pd.DataFrame(agam23)
