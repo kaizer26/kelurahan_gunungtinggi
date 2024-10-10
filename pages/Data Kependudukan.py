@@ -122,12 +122,18 @@ with st.expander("lihat tabel"):
 st.write('# Pekerjaan Penduduk Tahun 2023')
 kerja23.index = list(kerja23.iloc[0:13,0])
 kerja23 = kerja23.iloc[0:13,1:4]
-#st.bar_chart(kerja23.iloc[0:13,0].T)
-
+#######
+pilih3 = st.radio("Pilih Jenis Kelamin:",['Laki & Perempuan','Laki-laki','Perempuan'])
+if pilih3 =='Laki & Perempuan':
+    datatp1 = kerja23.iloc[0:13,2]
+elif pilih3 == 'Laki-laki':
+    datatp1 = kerja23.iloc[0:13,0]
+elif pilih3 == 'Perempuan':
+    datatp1 = kerja23.iloc[0:13,1]
 datatp1 = kerja23.iloc[0:13,0]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 charttp1 = (
-    alt.Chart(datatp1,title=alt.TitleParams('Laki-laki', anchor='middle'))
+    alt.Chart(datatp1,title=alt.TitleParams(pilih3, anchor='middle'))
     .mark_bar()
     .encode(
         x=alt.X("value", type="quantitative", title=""),
@@ -143,30 +149,7 @@ text1 = charttp1.mark_text(
     text='value'
 )
 charttp1 = (charttp1 + text1)
-
-datatp2 = kerja23.iloc[0:13,1]
-datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
-charttp2 = (
-    alt.Chart(datatp2,title=alt.TitleParams('Perempuan', anchor='middle'))
-    .mark_bar()
-    .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
-        color=alt.Color("variable", type="nominal", title="",legend=None),
-    )
-)
-text2 = charttp2.mark_text(
-    align='left',
-    baseline='middle',
-    dx=3  # Nudges text to right so it doesn't appear on top of the bar
-).encode(
-    text='value'
-)
-charttp2 = (charttp2 + text2)
-
-tp1,tp2 = st.columns((1,1))
-tp1.altair_chart(charttp1)   
-tp2.altair_chart(charttp2)   
+st.altair_chart(charttp1)   
 with st.expander("lihat tabel"):
     st.dataframe(kerja23,use_container_width=True)
 
