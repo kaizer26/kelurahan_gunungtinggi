@@ -100,12 +100,21 @@ elif pilih2 == 'Perempuan':
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
 charttp1 = (
     alt.Chart(datatp1,title=alt.TitleParams(pilih2, anchor='middle'))
-    .mark_arc()
+    .mark_bar()
     .encode(
-        theta=alt.Theta("value", type="quantitative", title=""),
-        color=alt.Color("index", type="nominal", title=""),
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index", type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
+text1 = charttp1.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp1 = (charttp1 + text1)
 st.altair_chart(charttp1)   
 with st.expander("lihat tabel"):
     st.dataframe(stkerja23,use_container_width=True)
