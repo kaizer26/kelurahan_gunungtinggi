@@ -29,7 +29,7 @@ sd=int(fas23.iloc[2,1])
 smp=int(fas23.iloc[3,1])
 sma=int(fas23.iloc[4,1])
 pt=int(fas23.iloc[5,1]+fas23.iloc[6,1])
-
+modify = st.checkbox("Add filters")
 sag = st.checkbox("termasuk sekolah keagamaan",value=True)         
 if sag:
     tk=int(fas23.iloc[1,1]+fas23.iloc[13,1])
