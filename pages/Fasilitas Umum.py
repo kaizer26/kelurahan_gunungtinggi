@@ -21,6 +21,7 @@ fas23 = conn.read(spreadsheet=url9)
 fas23 = pd.DataFrame(fas23)                       #convert ke panda df
 fas23 = fas23.iloc[1:94,0:3]
 
+st.write("# Fasilitas Pendidikan")
 #this is content
 tk=int(fas23.iloc[1,1])
 sd=int(fas23.iloc[2,1])
@@ -31,7 +32,6 @@ pt=int(fas23.iloc[5,1]+fas23.iloc[6,1])
 sag = st.checkbox("termasuk sekolah keagamaan",value=True)         
 if sag:
     tk=int(fas23.iloc[1,1]+fas23.iloc[13,1]);sd=int(fas23.iloc[2,1]+fas23.iloc[14,1]);smp=int(fas23.iloc[3,1]+fas23.iloc[15,1]);sma=int(fas23.iloc[4,1]+fas23.iloc[16,1]);pt=int(fas23.iloc[5,1]+fas23.iloc[6,1]+fas23.iloc[18,1])
-st.write("# Fasilitas Pendidikan")
     
 pd1,pd2,pd3,pd4,pd5 = st.columns((1,1,1,1,1))
 pd1.metric(label='TK',value="🚸"+str(tk))
