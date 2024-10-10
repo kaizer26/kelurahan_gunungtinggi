@@ -24,9 +24,9 @@ fas23 = fas23.iloc[1:94,0:3]
 #this is content
 st.write("# Fasilitas Pendidikan")
 
-st.checkbox("termasuk sekolah keagamaan",value=True)           #dengan sekolah agama
+sag = st.checkbox("termasuk sekolah keagamaan",value=True)         
 
-if s_ag:
+if sag:
     tka=fas23.iloc[13,1]
     sda=fas23.iloc[14,1]
     smpa=fas23.iloc[15,1]
