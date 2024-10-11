@@ -266,3 +266,24 @@ with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
     st.header("Dashboard Data Penduduk Desa Cibiru Wetan")
     st.caption("""Data kependudukan ini menyediakan data jumlah penduduk berdasarkan usia, jenis kelamin, serta data tingkat pendidikan dan status pendidikan angkatan kerja (penduduk usia 18-56 tahun) di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
+
+import numpy as np
+
+np.random.seed(0)
+
+merged_df = pd.DataFrame({
+    'Number of agents': np.random.randint(1, 4, 20),
+    'Buses': np.random.randint(1, 17, 20),
+    'DSs': np.random.randint(0, 3, 20),
+    'Type': np.random.choice(['Consumers', 'Prosumers'], 20)
+})
+
+alt.Chart(merged_df).mark_bar().encode(
+  y=alt.Y('Number of agents:Q'),
+  x=alt.X('Buses:O'), 
+  color=alt.Color('Type:N'),
+).facet(
+  column=alt.Column('DSs:N'),
+).resolve_scale(
+  x='independent'
+)
