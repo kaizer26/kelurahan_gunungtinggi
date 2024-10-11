@@ -278,7 +278,7 @@ charttp5 = (
         y=alt.Y("index",type="nominal", title="",sort="descending"),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     ).transform_filter(
-    (x>0))
+    ('value'>0))
 )
 text5 = charttp5.mark_text(
     align='left',
