@@ -133,7 +133,7 @@ elif pilih3 == 'Laki-laki':
 elif pilih3 == 'Perempuan':
     datatp2 = kerja23.iloc[0:13,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
-kerja0 = st.checkbox("jangan tampilkan data yang bernilai 0 (nol)",value=True)
+kerja0 = st.checkbox("jangan tampilkan data yang bernilai 0 (nol)",value=True,key="kerja0")
 if kerja0:
     datatp2 = datatp2[datatp2['value'] != 0]        #Filter untuk menghapus baris di mana value = 0
 charttp2 = (
@@ -209,6 +209,9 @@ elif pilih5 == 'Laki-laki':
 elif pilih5 == 'Perempuan':
     datatp4 = et23.iloc[0:20,1]
 datatp4 = pd.melt(datatp4.reset_index(), id_vars=["index"])
+et0 = st.checkbox("jangan tampilkan data bernilai 0 (nol)",value=True,key="et0")
+if agam0:
+    datatp4 = datatp4[datatp4['value'] != 0]        #Filter untuk menghapus baris di mana value = 0
 charttp4 = (
     alt.Chart(datatp4,title=alt.TitleParams(pilih5, anchor='middle'))
     .mark_bar()
@@ -244,7 +247,7 @@ elif pilih6 == 'Laki-laki':
 elif pilih6 == 'Perempuan':
     datatp5 = agam23.iloc[0:8,1]
 datatp5 = pd.melt(datatp5.reset_index(), id_vars=["index"])
-agam0 = st.checkbox("gmn",key="agam0")
+agam0 = st.checkbox("jangan tampilkan data bernilai 0 (nol)",value=True,key="agam0")
 if agam0:
     datatp5 = datatp5[datatp5['value'] != 0]        #Filter untuk menghapus baris di mana value = 0
 charttp5 = (
