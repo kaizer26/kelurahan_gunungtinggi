@@ -248,8 +248,7 @@ charttp5 = (
         x=alt.X("value", type="quantitative", title=""),
         y=alt.Y("index", type="nominal", title="",sort="descending"),
         color=alt.Color("variable", type="nominal", title="",legend=None),
-    ).facet().resolve_scale(
-        y='independent')
+    )
 )
 text5 = charttp5.mark_text(
     align='left',
@@ -259,7 +258,7 @@ text5 = charttp5.mark_text(
     text='value'
 )
 charttp5 = (charttp5 + text5)
-st.altair_chart(charttp5)
+st.altair_chart(charttp5,use_container_width=True)
 with st.expander("lihat tabel"):
     st.dataframe(agam23,use_container_width=True)
 
