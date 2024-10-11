@@ -39,7 +39,6 @@ jk = list(["Laki-laki","Perempuan"])
 datapiramida.iloc[0:16,0]=-datapiramida.iloc[0:16,0]
 datapiramida.index = list(datap2024.iloc[0:16,0])
 datapiramida.columns = jk
-#st.bar_chart(datapiramida)
 
 pd2024laki = int(datap2024.iloc[0:16,1:2].sum().sum())
 pd2024pere = int(datap2024.iloc[0:16,2:3].sum().sum())
@@ -61,7 +60,7 @@ m1.write("")
 m2.metric(label ='Penduduk Laki-laki',value = "🚹"+str(int(pd2024laki)))
 m3.metric(label = 'Penduduk Perempuan',value = "🚺"+str(int(pd2024pere)))
 m4.write("")
-st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun 2024 semester 1 sebanyak ",int(datap2024.iloc[20,1]),". Jumlah penduduk pada periode tersebut sebanyak ",int(jp2024)," jiwa dengan penduduk laki-laki sebanyak ",int(pd2024laki)," jiwa dan penduduk perempuan sebanyak",pd2024pere," jiwa.")
+st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun 2024 semester 1 sebanyak ",str(int(datap2024.iloc[20,1])),". Jumlah penduduk pada periode tersebut sebanyak ",str(int(jp2024))," jiwa dengan penduduk laki-laki sebanyak ",str(int(pd2024laki))," jiwa dan penduduk perempuan sebanyak",pd2024pere," jiwa.")
 
 url9='https://docs.google.com/spreadsheets/d/1Skt6QdDL1_EKQJ3MgdJG53-FtCevRv56pRZNOyBf4lI/edit?usp=sharing'
 fas23 = conn.read(spreadsheet=url9)
