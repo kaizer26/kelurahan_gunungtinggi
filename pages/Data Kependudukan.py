@@ -277,7 +277,7 @@ charttp5 = (
         x=alt.X("value", type="quantitative", title=""),
         y=alt.Y("index:N",type="nominal", title="",sort="descending"),
         color=alt.Color("variable", type="nominal", title="",legend=None),
-    ).trasnform_silter(
+    ).transform_silter(
     (value>0))
 )
 text5 = charttp5.mark_text(
