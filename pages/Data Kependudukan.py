@@ -248,7 +248,7 @@ charttp5 = (
         x=alt.X("value", type="quantitative", title=""),
         y=alt.Y("index", type="nominal", title="",sort="descending"),
         color=alt.Color("variable", type="nominal", title="",legend=None),
-    ).resolve_scale(x='independent')
+    ).resolve_scale(y='independent')
 )
 text5 = charttp5.mark_text(
     align='left',
