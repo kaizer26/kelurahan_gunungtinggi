@@ -245,11 +245,10 @@ charttp5 = (
     alt.Chart(datatp5,title=alt.TitleParams(pilih6, anchor='middle'))
     .mark_bar()
     .encode(
-        x=alt.X("value:Q", title=""),
-        y=alt.Y("index:N", title="",sort="descending"),
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index:N",type="nominal", title="",sort="descending"),
         color=alt.Color("variable", type="nominal", title="",legend=None),
-    ).resolve_scale(
-    y='independent')
+    )
 )
 text5 = charttp5.mark_text(
     align='left',
