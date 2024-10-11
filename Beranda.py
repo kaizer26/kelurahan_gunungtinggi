@@ -26,7 +26,7 @@ t2.markdown(" **Halaman Utama Dashboard Data Desa Cibiru Wetan, Cileunyi, Kab. B
 
 #this is content
  #st.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2023/01/branding-cibiru-wetan-WISATA-1-800x197.png')
-st.write("# Rekap Penduduk Desa Cibiru Wetan")
+st.write("# Rekap Data Desa Cibiru Wetan")
 
 url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
@@ -40,24 +40,6 @@ datapiramida.iloc[0:16,0]=-datapiramida.iloc[0:16,0]
 datapiramida.index = list(datap2024.iloc[0:16,0])
 datapiramida.columns = jk
 #st.bar_chart(datapiramida)
-
-import altair as alt
-# Convert wide-form data to long-form
-# See: https://altair-viz.github.io/user_guide/data.html#long-form-vs-wide-form-data
-data = pd.melt(datapiramida.reset_index(), id_vars=["index"])
-
-# Horizontal stacked bar chart
-chart = (
-    alt.Chart(data)
-    .mark_bar()
-    .encode(
-        x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index", type="nominal", title="",sort="descending"),
-        color=alt.Color("variable", type="nominal", title=""),
-    )
-)
-
-#st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
 
 pd2024laki = int(datap2024.iloc[0:16,1:2].sum().sum())
 pd2024pere = int(datap2024.iloc[0:16,2:3].sum().sum())
@@ -79,11 +61,24 @@ m1.write("")
 m2.metric(label ='Penduduk Laki-laki',value = "🚹"+str(int(pd2024laki)))
 m3.metric(label = 'Penduduk Perempuan',value = "🚺"+str(int(pd2024pere)))
 m4.write("")
-
-#import matplotlib.pyplot as plt
-#st.pyplot(lakipere2024)
-
 st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun 2024 semester 1 sebanyak ",int(datap2024.iloc[20,1]),". Jumlah penduduk pada periode tersebut sebanyak ",int(jp2024)," jiwa dengan penduduk laki-laki sebanyak ",int(pd2024laki)," jiwa dan penduduk perempuan sebanyak",pd2024pere," jiwa.")
+
+url9='https://docs.google.com/spreadsheets/d/1Skt6QdDL1_EKQJ3MgdJG53-FtCevRv56pRZNOyBf4lI/edit?usp=sharing'
+fas23 = conn.read(spreadsheet=url9)
+fas23 = pd.DataFrame(fas23)                       #convert ke panda df
+fas23 = fas23.iloc[1:94,0:3]
+sd=int(fas23.iloc[2,1]);mi=int(fas23.iloc[14,1]);sdt=int(fas23.iloc[2,1]+fas23.iloc[14,1])
+smp=int(fas23.iloc[3,1]);mts=int(fas23.iloc[15,1]);smpt=int(fas23.iloc[3,1]+fas23.iloc[15,1])
+sma=int(fas23.iloc[4,1]);ma=int(fas23.iloc[16,1]);smat=int(fas23.iloc[4,1]+fas23.iloc[16,1])
+
+pd1,pd2,pd3,pd4,pd5 = st.columns((1,1,1,1,1))
+pd1.write("")
+pd2.metric(label='SD',value="🎒"+str(sdt))
+pd3.metric(label='SMP',value="🏫"+str(smpt))
+pd4.metric(label='SMA/K',value="📘"+str(smat))
+pd5.write("")
+st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun 2023, antara lain SD/sederajat sebanyak ",sdt," (termasuk ",mi," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",smpt," (termasuk ",mts," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",smat," (termasuk ",ma," Madrasah Aliyah/Ma)")
+
 
 import pydeck as pdk
 st.write("# Profil Desa Cibiru Wetan")
