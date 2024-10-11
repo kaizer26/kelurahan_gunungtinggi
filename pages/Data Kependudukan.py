@@ -248,8 +248,6 @@ charttp5 = (
         x=alt.X("value", type="quantitative", title=""),
         y=alt.Y("index", type="nominal", title="",sort="descending"),
         color=alt.Color("variable", type="nominal", title="",legend=None),
-    ).resolve_scale(
-    y='independent'
     )
 )
 text5 = charttp5.mark_text(
@@ -284,8 +282,6 @@ haha=alt.Chart(merged_df).mark_bar().encode(
         y=alt.Y('Number of agents:Q'),
         x=alt.X('Buses:O'), 
         color=alt.Color('Type:N'),
-     ).facet(
-        column=alt.Column('DSs:N'),
      ).resolve_scale(
         x='independent'
      )
