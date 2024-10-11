@@ -148,5 +148,5 @@ st.write("[instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s
 
 st.write("**📧: desawisatacibiruwetan@gmail.com**")
 urlkantor = 'https://maps.app.goo.gl/4Swdj5bh4YfkTmn76'
-st.write([🏢: **[Jl. Cibangkonol No.28, Cibiru Wetan, Kec. Cileunyi, Kabupaten Bandung, Jawa Barat 40625](%s)**"%urlkantor)
+st.write("🏢: **[Jl. Cibangkonol No.28, Cibiru Wetan, Kec. Cileunyi, Kabupaten Bandung, Jawa Barat 40625](%s)**"%urlkantor)
 
