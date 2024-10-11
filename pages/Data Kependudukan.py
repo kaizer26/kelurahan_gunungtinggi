@@ -210,7 +210,7 @@ elif pilih5 == 'Perempuan':
     datatp4 = et23.iloc[0:20,1]
 datatp4 = pd.melt(datatp4.reset_index(), id_vars=["index"])
 et0 = st.checkbox("jangan tampilkan data bernilai 0 (nol)",value=True,key="et0")
-if agam0:
+if et0:
     datatp4 = datatp4[datatp4['value'] != 0]        #Filter untuk menghapus baris di mana value = 0
 charttp4 = (
     alt.Chart(datatp4,title=alt.TitleParams(pilih5, anchor='middle'))
