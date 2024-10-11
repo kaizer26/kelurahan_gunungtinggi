@@ -78,6 +78,16 @@ pd4.metric(label='SMA/K',value="📘"+str(smat))
 pd5.write("")
 st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun 2023, antara lain SD/sederajat sebanyak ",str(sdt)," (termasuk ",str(mi)," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",str(smpt)," (termasuk ",str(mts)," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",str(smat)," (termasuk ",str(ma)," Madrasah Aliyah/Ma).")
 
+url10='https://docs.google.com/spreadsheets/d/15sfFQbVZUmseAfOv70EXI4pe3wUusL9OvfeOex43ueg/edit?usp=sharing'
+conn  = st.connection("gsheets", type=GSheetsConnection)
+pt23 = conn.read(spreadsheet=url10)
+pt23 = pd.DataFrame(pt23)                       #convert ke panda df
+pt23 = pt23.iloc[0:65,0:4]
+pt23.index = list(pt23.iloc[0:65,0])
+pt23 = pt23.iloc[0:65,1:4]
+p1,p2 = st.columns((1,1,1,1))
+pd1.metric(label='Hasil panen Kopi (Ton/Ha)',value="☕"+str(int(pt23.iloc[60,0]))
+pd2.metric(label='Hasil Panen Padi (Ton/Ha)',value="🌾"+str(int(pt23.iloc[6:7,0].sum().sum()))
 
 import pydeck as pdk
 st.write("# Profil Desa Cibiru Wetan")
