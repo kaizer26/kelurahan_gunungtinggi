@@ -60,7 +60,7 @@ m1.write("")
 m2.metric(label ='Penduduk Laki-laki',value = "🚹"+str(int(pd2024laki)))
 m3.metric(label = 'Penduduk Perempuan',value = "🚺"+str(int(pd2024pere)))
 m4.write("")
-st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun 2024 semester 1 sebanyak ",str(int(datap2024.iloc[20,1])),". Jumlah penduduk pada periode tersebut sebanyak ",str(int(jp2024))," jiwa dengan penduduk laki-laki sebanyak ",str(int(pd2024laki))," jiwa dan penduduk perempuan sebanyak",pd2024pere," jiwa.")
+st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun 2024 semester 1 sebanyak ",str(int(datap2024.iloc[20,1])),". Jumlah penduduk pada periode tersebut sebanyak ",str(int(jp2024))," jiwa dengan penduduk laki-laki sebanyak ",str(int(pd2024laki))," jiwa dan penduduk perempuan sebanyak",str(pd2024pere)," jiwa.")
 
 url9='https://docs.google.com/spreadsheets/d/1Skt6QdDL1_EKQJ3MgdJG53-FtCevRv56pRZNOyBf4lI/edit?usp=sharing'
 fas23 = conn.read(spreadsheet=url9)
@@ -76,7 +76,7 @@ pd2.metric(label='SD',value="🎒"+str(sdt))
 pd3.metric(label='SMP',value="🏫"+str(smpt))
 pd4.metric(label='SMA/K',value="📘"+str(smat))
 pd5.write("")
-st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun 2023, antara lain SD/sederajat sebanyak ",str(sdt)," (termasuk ",mi," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",smpt," (termasuk ",mts," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",smat," (termasuk ",ma," Madrasah Aliyah/Ma).")
+st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun 2023, antara lain SD/sederajat sebanyak ",str(sdt)," (termasuk ",str(mi)," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",str(smpt)," (termasuk ",str(mts)," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",str(smat)," (termasuk ",str(ma)," Madrasah Aliyah/Ma).")
 
 
 import pydeck as pdk
