@@ -54,7 +54,7 @@ if pilih1 ==2024:
         alt.Chart(data)
         .mark_bar()
         .encode(
-            x=alt.X("value", type="quantitative", title=""),
+            x=alt.X("value", type="quantitative", title="",axis=alt.Axis(labels=False)),
             y=alt.Y("index", type="nominal", title="",sort="descending"),
             color=alt.Color("variable", type="nominal", title=""),
         )
@@ -71,7 +71,7 @@ elif pilih1==2023:
         alt.Chart(data2)
         .mark_bar()
         .encode(
-            x=alt.X("value", type="quantitative", title=""),
+            x=alt.X("value", type="quantitative", title="",axis=alt.Axis(labels=False)),
             y=alt.Y("index", type="nominal", title="",sort="descending"),
             color=alt.Color("variable", type="nominal", title=""),
         )
