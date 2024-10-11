@@ -87,7 +87,7 @@ pt23.index = list(pt23.iloc[0:65,0])
 pt23 = pt23.iloc[0:65,1:4]
 p1,p2 = st.columns((1,1))
 p1.metric(label='Hasil panen Kopi (Ton/Ha)',value="☕"+str(int(pt23.iloc[60,0])))
-p2.metric(label='Hasil Panen Padi (Ton/Ha)',value="🌾"+str(int(pt23.iloc[6:7,0].sum().sum())))
+p2.metric(label='Hasil Panen Padi Ladang & Sawah (Ton/Ha)',value="🌾"+str(int(pt23.iloc[6:7,0].sum().sum())))
 
 import pydeck as pdk
 st.write("# Profil Desa Cibiru Wetan")
