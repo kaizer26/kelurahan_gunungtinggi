@@ -259,7 +259,7 @@ text5 = charttp5.mark_text(
     text='value'
 )
 charttp5 = (charttp5 + text5)
-st.altair_chart(charttp5,use_container_width=True)
+st.altair_chart(charttp5)
 with st.expander("lihat tabel"):
     st.dataframe(agam23,use_container_width=True)
 
