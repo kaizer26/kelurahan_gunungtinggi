@@ -267,20 +267,25 @@ with st.sidebar:
     st.header("Dashboard Data Penduduk Desa Cibiru Wetan")
     st.caption("""Data kependudukan ini menyediakan data jumlah penduduk berdasarkan usia, jenis kelamin, serta data tingkat pendidikan dan status pendidikan angkatan kerja (penduduk usia 18-56 tahun) di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
 
-import numpy as np
-
-np.random.seed(0)
-
-merged_df = pd.DataFrame({
-    'Number of agents': np.random.randint(1, 4, 20),
-    'Buses': np.random.randint(1, 17, 20),
-    'DSs': np.random.randint(0, 3, 20),
-    'Type': np.random.choice(['Consumers', 'Prosumers'], 20)
-})
-
-haha=alt.Chart(merged_df).mark_bar().encode(
-        y=alt.Y('Number of agents:Q'),
-        x=alt.X('Buses:O'), 
-        color=alt.Color('Type:N'),
-     )
-st.altair_chart(haha)
+#coba
+datatp5 = agam23.iloc[0:8,2]
+datatp5 = pd.melt(datatp5.reset_index(), id_vars=["index"])
+charttp5 = (
+    alt.Chart(datatp5,title=alt.TitleParams(pilih6, anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index:N",type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    ).trasnform_silter(
+    (value>0))
+)
+text5 = charttp5.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp5 = (charttp5 + text5)
+st.altair_chart(charttp5,use_container_width=True)
