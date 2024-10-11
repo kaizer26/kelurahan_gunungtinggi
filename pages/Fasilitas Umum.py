@@ -37,7 +37,7 @@ pd1,pd2,pd3,pd4,pd5 = st.columns((1,1,1,1,1))
 pd1.metric(label='TK',value="🚸"+str(tk))
 pd2.metric(label='SD',value="🎒"+str(sd))
 pd3.metric(label='SMP',value="🏫"+str(smp))
-pd4.metric(label='SMA',value="📘"+str(sma))
+pd4.metric(label='SMA/K',value="📘"+str(sma))
 pd5.metric(label='PT',value="🎓"+str(pt))
 
 st.write("# Fasilitas Kesehatan")
