@@ -246,7 +246,7 @@ charttp5 = (
     .mark_bar()
     .encode(
         x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index:N",type="nominal", title="",sort="descending"),
+        y=alt.Y("index",type="nominal", title="",sort="descending"),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     )
 )
@@ -275,10 +275,10 @@ charttp5 = (
     .mark_bar()
     .encode(
         x=alt.X("value", type="quantitative", title=""),
-        y=alt.Y("index:N",type="nominal", title="",sort="descending"),
+        y=alt.Y("index",type="nominal", title="",sort="descending"),
         color=alt.Color("variable", type="nominal", title="",legend=None),
     ).transform_filter(
-    (value>0))
+    (x>0))
 )
 text5 = charttp5.mark_text(
     align='left',
