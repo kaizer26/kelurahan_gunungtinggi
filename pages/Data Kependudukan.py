@@ -61,9 +61,9 @@ if pilih1 ==2024:
     )
 
     st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
-    st.write("Total Penduduk:",jp2024," | Penduduk Laki-laki:",int(datap2024.iloc[0:16,1].sum().sum())," | Penduduk Perempuan:",int(datap2024.iloc[0:16,2].sum().sum()))
+    st.write("Total Penduduk:",int(jp2024)," | Penduduk Laki-laki:",int(datap2024.iloc[0:16,1].sum().sum())," | Penduduk Perempuan:",int(datap2024.iloc[0:16,2].sum().sum()))
     with st.expander("lihat tabel"):
-        st.dataframe(int(datap2024.iloc[0:16,0:3]), use_container_width=True, hide_index=True)   #menampilkan data
+        st.dataframe(datap2024.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
 elif pilih1==2023:
     # Convert wide-form data to long-form
     data2 = pd.melt(datapiramida2.reset_index(), id_vars=["index"])
