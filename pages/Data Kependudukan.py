@@ -272,7 +272,7 @@ with st.sidebar:
 
 datatp5 = agam23.iloc[0:8,1]
 datatp5 = pd.melt(datatp5.reset_index(), id_vars=["index"])
-datatp2 = datatp5[datatp5['value'] != 0]        # Filter untuk menghapus baris di mana value = 0
+datatp5 = datatp5[datatp5['value'] != 0]        #Filter untuk menghapus baris di mana value = 0
 
 charttp5 = (
     alt.Chart(datatp5,title=alt.TitleParams(pilih6, anchor='middle'))
