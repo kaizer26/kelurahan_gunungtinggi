@@ -153,5 +153,5 @@ st.dataframe(pt23,use_container_width=True)
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
-    st.header("Dashboard Data Hasil Pertanian Desa Cibiru Wetan")
-    st.caption("""Data hasil pertanian menyediakan data luas lahan serta hasil panen dari berbagai komoditas tanaman pangan, buah-buahan, dan hasil perkebunan di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
+    st.header("Dashboard Data Pertanian dan Perkebunan Desa Cibiru Wetan")
+    st.caption("""Menu pertanian dan perkebunan menyediakan data luas lahan serta hasil panen dari berbagai komoditas tanaman pangan, buah-buahan, dan hasil perkebunan di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
