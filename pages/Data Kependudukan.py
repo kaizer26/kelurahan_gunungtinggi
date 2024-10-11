@@ -124,7 +124,7 @@ with st.expander("lihat tabel"):
 st.write('# Jumlah Penduduk Berdasarkan Jenis Pekerjaan Tahun 2023')
 kerja23.index = list(kerja23.iloc[0:13,0])
 kerja23 = kerja23.iloc[0:13,1:4]
-kerja23 = pd.Dataframe(kerja23)
+kerja23 = pd.DataFrame(kerja23)
 #######
 pilih3 = st.radio('Pilih Jenis Kelamin: ',['Laki & Perempuan','Laki-laki','Perempuan'],key="pekerjaan")
 if pilih3 =='Laki & Perempuan':
