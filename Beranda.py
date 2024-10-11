@@ -45,6 +45,10 @@ pd2024pere = int(datap2024.iloc[0:16,2:3].sum().sum())
 lakipere2024 = pd.DataFrame({"laki":[pd2024laki],"perempuan":[pd2024pere]})
 lakipere2024.columns = list(["Laki-laki","Perempuan"])
 
+urlpddk='https://dashboard-desacibiruwetan.streamlit.app/Kependudukan'
+urlfasil='https://dashboard-desacibiruwetan.streamlit.app/Fasilitas_Umum'
+urlpt='https://dashboard-desacibiruwetan.streamlit.app/Pertanian_dan_Perkebunan'
+
 m1, m2, m3 = st.columns((1,1,1))
 m1.write("")
 m2.metric(label = 'Total KK',value = "📋"+str(int(datap2024.iloc[20,1])))
@@ -60,7 +64,7 @@ m1.write("")
 m2.metric(label ='Penduduk Laki-laki',value = "🚹"+str(int(pd2024laki)))
 m3.metric(label = 'Penduduk Perempuan',value = "🚺"+str(int(pd2024pere)))
 m4.write("")
-st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun 2024 semester 1 sebanyak ",str(int(datap2024.iloc[20,1])),". Jumlah penduduk pada periode tersebut sebanyak ",str(int(jp2024))," jiwa dengan penduduk laki-laki sebanyak ",str(int(pd2024laki))," jiwa dan penduduk perempuan sebanyak",str(pd2024pere)," jiwa.")
+st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun 2024 semester 1 sebanyak ",str(int(datap2024.iloc[20,1])),". Jumlah penduduk pada periode tersebut sebanyak ",str(int(jp2024))," jiwa dengan penduduk laki-laki sebanyak ",str(int(pd2024laki))," jiwa dan penduduk perempuan sebanyak",str(pd2024pere)," jiwa. [lihat data selengkapnya](%s)"%urlpddk)
 
 url9='https://docs.google.com/spreadsheets/d/1Skt6QdDL1_EKQJ3MgdJG53-FtCevRv56pRZNOyBf4lI/edit?usp=sharing'
 fas23 = conn.read(spreadsheet=url9)
@@ -76,7 +80,7 @@ pd2.metric(label='SD',value="🎒"+str(sdt))
 pd3.metric(label='SMP',value="🏫"+str(smpt))
 pd4.metric(label='SMA/K',value="📘"+str(smat))
 pd5.write("")
-st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun 2023, antara lain SD/sederajat sebanyak ",str(sdt)," (termasuk ",str(mi)," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",str(smpt)," (termasuk ",str(mts)," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",str(smat)," (termasuk ",str(ma)," Madrasah Aliyah/Ma).")
+st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun 2023, antara lain SD/sederajat sebanyak ",str(sdt)," (termasuk ",str(mi)," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",str(smpt)," (termasuk ",str(mts)," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",str(smat)," (termasuk ",str(ma)," Madrasah Aliyah/Ma). [lihat data selengkapnya](%s)"%urlfasil)
 
 url10='https://docs.google.com/spreadsheets/d/15sfFQbVZUmseAfOv70EXI4pe3wUusL9OvfeOex43ueg/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
@@ -88,7 +92,7 @@ pt23 = pt23.iloc[0:65,1:4]
 p1,p2 = st.columns((1,1))
 p1.metric(label='Hasil panen Kopi (Ton/Ha)',value="☕"+str(int(pt23.iloc[60,1])))
 p2.metric(label='Hasil Panen Padi Sawah (Ton/Ha)',value="🌾"+str(int(pt23.iloc[7,1])))
-st.write("Pada tahun 2023, perkebunan kopi di Desa Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[60,0]))," hektar (Ha) menghasilkan panen sebanyak ",str(int(pt23.iloc[60,1]))," Ton untuk setiap hektarnya. Selain itu, lahan sawah padi di Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[7,0]))," hektar (Ha) memiliki hasil panen sebanyak ",str(int(pt23.iloc[7,1]))," Ton untuk setiap hektarnya.")
+st.write("Pada tahun 2023, perkebunan kopi di Desa Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[60,0]))," hektar (Ha) menghasilkan panen sebanyak ",str(int(pt23.iloc[60,1]))," Ton untuk setiap hektarnya. Selain itu, lahan sawah padi di Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[7,0]))," hektar (Ha) memiliki hasil panen sebanyak ",str(int(pt23.iloc[7,1]))," Ton untuk setiap hektarnya. [lihat data selengkapnya](%s)"%urlpt)
 
 import pydeck as pdk
 st.write("# Profil Desa Cibiru Wetan")
@@ -140,7 +144,7 @@ desa2 = datadesa2.style.hide(axis=0).hide(axis=1)                        #menyem
 st.write(desa2.to_html(),unsafe_allow_html=True,use_container_width=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Kunjungi Kami")
-url_ig = 'https:/instagram.com/desa_cibiruwetan'
+url_ig = 'https://www.instagram.com/desa_cibiruwetan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
 url_web = 'https://cibiruwetan.desa.id'
 
