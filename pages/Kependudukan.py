@@ -3,7 +3,7 @@ import pandas as pd
 from streamlit_gsheets import GSheetsConnection
 
 st.set_page_config(
-    page_title="Data Kependudukan",
+    page_title="Kependudukan",
     page_icon=":family:",
 )
 
@@ -12,7 +12,7 @@ t1, t2 = st.columns((0.25,1))
 
 t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
 t2.title("Desa Cibiru Wetan")
-t2.markdown(" **Halaman Data Kependudukan Desa Cibiru Wetan, Cileunyi, Kab. Bandung** ")
+t2.markdown(" **Halaman Kependudukan Desa Cibiru Wetan, Cileunyi, Kab. Bandung** ")
 
 #this is content
 st.write("# Penduduk Berdasarkan Jenis Kelamin dan Kelompok Usia")
@@ -271,5 +271,5 @@ with st.expander("lihat tabel"):
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
-    st.header("Dashboard Data Penduduk Desa Cibiru Wetan")
-    st.caption("""Data kependudukan ini menyediakan data jumlah penduduk berdasarkan usia, jenis kelamin, serta data tingkat pendidikan dan status pendidikan angkatan kerja (penduduk usia 18-56 tahun) di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
+    st.header("Dashboard Kependudukan Desa Cibiru Wetan")
+    st.caption("""Menu kependudukan ini menyediakan data jumlah penduduk berdasarkan usia, jenis kelamin, serta data tingkat pendidikan dan status pendidikan angkatan kerja (penduduk usia 18-56 tahun) di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
