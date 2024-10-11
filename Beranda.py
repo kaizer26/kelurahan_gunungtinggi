@@ -88,7 +88,7 @@ pt23 = pt23.iloc[0:65,1:4]
 p1,p2 = st.columns((1,1))
 p1.metric(label='Hasil panen Kopi (Ton/Ha)',value="☕"+str(int(pt23.iloc[60,1])))
 p2.metric(label='Hasil Panen Padi Sawah (Ton/Ha)',value="🌾"+str(int(pt23.iloc[7,1])))
-st.write("Pada tahun 2023, perkebunan kopi di Desa Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[60,0]))," hektar (Ha) menghasilkan panen sebanyak ",str(int(pt23.iloc[60,1]))," Ton untuk setiap hektarnya. Selain itu, lahan sawah padi yang memiliki luas ",str(int(pt23.iloc[7,0]))," hektar (Ha) memiliki hasil panen sebanyak ",str(int(pt23.iloc[7,1]))," Ton untuk setiap hektarnya.")
+st.write("Pada tahun 2023, perkebunan kopi di Desa Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[60,0]))," hektar (Ha) menghasilkan panen sebanyak ",str(int(pt23.iloc[60,1]))," Ton untuk setiap hektarnya. Selain itu, lahan sawah padi di Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[7,0]))," hektar (Ha) memiliki hasil panen sebanyak ",str(int(pt23.iloc[7,1]))," Ton untuk setiap hektarnya.")
 
 import pydeck as pdk
 st.write("# Profil Desa Cibiru Wetan")
