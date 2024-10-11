@@ -135,7 +135,7 @@ elif pilih3 == 'Perempuan':
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
 #kerja0 = st.checkbox("jangan tampilkan data yang bernilai 0 (nol)",value=True)
 #if kerja0:
-    datatp2 = datatp2[datatp2['value'] != 0]        # Filter untuk menghapus baris di mana value = 0
+datatp2 = datatp2[datatp2['value'] != 0]        # Filter untuk menghapus baris di mana value = 0
 charttp2 = (
     alt.Chart(datatp2,title=alt.TitleParams(pilih3, anchor='middle'))
     .mark_bar()
