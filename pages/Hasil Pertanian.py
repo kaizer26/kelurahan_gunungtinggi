@@ -68,6 +68,9 @@ if pilih1 =='Luas Lahan (Ha)':
 elif pilih1 == 'Hasil Panen (Ton/Ha)':
     datatp1 = pt23.iloc[0:31,1]
 datatp1 = pd.melt(datatp1.reset_index(), id_vars=["index"])
+pangan0 = st.checkbox("jangan tampilkan data yang bernilai 0 (nol)",value=True,key="pangan0")
+if pangan0:
+    datatp1 = datatp1[datatp1['value'] != 0]        #Filter untuk menghapus baris di mana value = 0
 charttp1 = (
     alt.Chart(datatp1,title=alt.TitleParams(pilih1, anchor='middle'))
     .mark_bar()
@@ -94,7 +97,9 @@ if pilih2 =='Luas Lahan (Ha)':
 elif pilih2 == 'Hasil Panen (Ton/Ha)':
     datatp2 = pt23.iloc[31:58,1]
 datatp2 = pd.melt(datatp2.reset_index(), id_vars=["index"])
-# Horizontal stacked bar chart
+buah0 = st.checkbox("jangan tampilkan data yang bernilai 0 (nol)",value=True,key="buah0")
+if buah0:
+    datatp2 = datatp2[datatp2['value'] != 0]        #Filter untuk menghapus baris di mana value = 0
 charttp2 = (
     alt.Chart(datatp2,title=alt.TitleParams(pilih2, anchor='middle'))
     .mark_bar()
@@ -121,6 +126,9 @@ if pilih3 =='Luas Lahan (Ha)':
 elif pilih3 == 'Hasil Panen (Ton/Ha)':
     datatp3 = pt23.iloc[58:65,1]
 datatp3 = pd.melt(datatp3.reset_index(), id_vars=["index"])
+kebun0 = st.checkbox("jangan tampilkan data yang bernilai 0 (nol)",value=True,key="kebun0")
+if kebun0:
+    datatp3 = datatp3[datatp3['value'] != 0]        #Filter untuk menghapus baris di mana value = 0
 charttp3 = (
     alt.Chart(datatp3,title=alt.TitleParams(pilih3, anchor='middle'))
     .mark_bar()
