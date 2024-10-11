@@ -269,3 +269,26 @@ with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
     st.header("Dashboard Data Penduduk Desa Cibiru Wetan")
     st.caption("""Data kependudukan ini menyediakan data jumlah penduduk berdasarkan usia, jenis kelamin, serta data tingkat pendidikan dan status pendidikan angkatan kerja (penduduk usia 18-56 tahun) di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
+
+datatp5 = agam23.iloc[0:8,1]
+datatp5 = pd.melt(datatp5.reset_index(), id_vars=["index"])
+datatp2 = datatp5[datatp5['value'] != 0]        # Filter untuk menghapus baris di mana value = 0
+
+charttp5 = (
+    alt.Chart(datatp5,title=alt.TitleParams(pilih6, anchor='middle'))
+    .mark_bar()
+    .encode(
+        x=alt.X("value", type="quantitative", title=""),
+        y=alt.Y("index",type="nominal", title="",sort="descending"),
+        color=alt.Color("variable", type="nominal", title="",legend=None),
+    )
+)
+text5 = charttp5.mark_text(
+    align='left',
+    baseline='middle',
+    dx=3  # Nudges text to right so it doesn't appear on top of the bar
+).encode(
+    text='value'
+)
+charttp5 = (charttp5 + text5)
+st.altair_chart(charttp5,use_container_width=True)
