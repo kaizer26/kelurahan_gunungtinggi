@@ -278,12 +278,13 @@ merged_df = pd.DataFrame({
     'Type': np.random.choice(['Consumers', 'Prosumers'], 20)
 })
 
-alt.Chart(merged_df).mark_bar().encode(
-  y=alt.Y('Number of agents:Q'),
-  x=alt.X('Buses:O'), 
-  color=alt.Color('Type:N'),
-).facet(
-  column=alt.Column('DSs:N'),
-).resolve_scale(
-  x='independent'
-)
+haha=alt.Chart(merged_df).mark_bar().encode(
+        y=alt.Y('Number of agents:Q'),
+        x=alt.X('Buses:O'), 
+        color=alt.Color('Type:N'),
+     ).facet(
+        column=alt.Column('DSs:N'),
+     ).resolve_scale(
+        x='independent'
+     )
+st.altair_chart(haha)
