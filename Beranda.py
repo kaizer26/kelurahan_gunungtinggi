@@ -77,7 +77,7 @@ pd2.metric(label='SD',value="🎒"+str(sdt))
 pd3.metric(label='SMP',value="🏫"+str(smpt))
 pd4.metric(label='SMA/K',value="📘"+str(smat))
 pd5.write("")
-st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun 2023, antara lain SD/sederajat sebanyak ",sdt," (termasuk ",mi," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",smpt," (termasuk ",mts," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",smat," (termasuk ",ma," Madrasah Aliyah/Ma)")
+st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun 2023, antara lain SD/sederajat sebanyak ",str(sdt)," (termasuk ",mi," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",smpt," (termasuk ",mts," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",smat," (termasuk ",ma," Madrasah Aliyah/Ma).")
 
 
 import pydeck as pdk
