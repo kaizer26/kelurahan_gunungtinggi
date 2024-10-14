@@ -58,7 +58,7 @@ if pilih1 ==str(int(datadesa.iloc[18,1])):
         .mark_bar()
         .encode(
             x=alt.X("value", type="quantitative", title="",axis=alt.Axis(labels=False)),
-            y=alt.Y("index", type="nominal", title="",sort="descending"),
+            y=alt.Y("index", type="nominal", title="usia",sort="descending"),
             color=alt.Color("variable", type="nominal", title=""),
         )
     )
@@ -75,7 +75,7 @@ elif pilih1==str(int(datadesa.iloc[19,1])):
         .mark_bar()
         .encode(
             x=alt.X("value", type="quantitative", title="",axis=alt.Axis(labels=False)),
-            y=alt.Y("index", type="nominal", title="",sort="descending"),
+            y=alt.Y("index", type="nominal", title="usia",sort="descending"),
             color=alt.Color("variable", type="nominal", title=""),
         )
     )
