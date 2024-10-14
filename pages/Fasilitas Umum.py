@@ -17,7 +17,6 @@ t1, t2 = st.columns((0.25,1))
 t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
 t2.title("Desa Cantik Cibiru Wetan")
 t2.markdown(" **Halaman Data Fasilitas Umum Desa Cibiru Wetan** ")
-st.write(" Tahun ",str(int(datadesa.iloc[21,1])))
 
 url9='https://docs.google.com/spreadsheets/d/1Skt6QdDL1_EKQJ3MgdJG53-FtCevRv56pRZNOyBf4lI/edit?usp=sharing'
 fas23 = conn.read(spreadsheet=url9)
@@ -93,6 +92,7 @@ or5.metric(label='Lap. Basket',value="🏀"+str(int(fas23.iloc[83,1])))
 ### Import Data Lengkap
 st.write('# Fasilitas Selengkapnya')
 st.dataframe(fas23,use_container_width=True)
+st.write(" Data di atas merupakan data tahun ",str(int(datadesa.iloc[21,1])))
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
