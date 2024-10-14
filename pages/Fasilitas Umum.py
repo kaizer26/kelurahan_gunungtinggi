@@ -92,7 +92,7 @@ or5.metric(label='Lap. Basket',value="🏀"+str(int(fas23.iloc[83,1])))
 ### Import Data Lengkap
 st.write('# Fasilitas Selengkapnya')
 st.dataframe(fas23,use_container_width=True)
-st.write(" Data di atas merupakan data tahun ",str(int(datadesa.iloc[21,1])))
+st.write(" Keterangan: data di atas merupakan data tahun ",str(int(datadesa.iloc[21,1])))
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
