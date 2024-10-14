@@ -11,8 +11,8 @@ st.set_page_config(
 t1, t2 = st.columns((0.25,1))
 
 t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
-t2.title("Desa Cibiru Wetan")
-t2.markdown(" **Halaman Kependudukan Desa Cibiru Wetan, Cileunyi, Kab. Bandung** ")
+t2.title("Desa Cantik Cibiru Wetan")
+t2.markdown(" **Halaman Kependudukan Desa Cibiru Wetan** ")
 
 #this is content
 st.write("# Penduduk Berdasarkan Jenis Kelamin dan Kelompok Usia")
