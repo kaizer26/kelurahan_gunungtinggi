@@ -21,7 +21,7 @@ t2.markdown(" **Halaman Data Fasilitas Umum Desa Cibiru Wetan** ")
 url9='https://docs.google.com/spreadsheets/d/1Skt6QdDL1_EKQJ3MgdJG53-FtCevRv56pRZNOyBf4lI/edit?usp=sharing'
 fas23 = conn.read(spreadsheet=url9)
 fas23 = pd.DataFrame(fas23)                       #convert ke panda df
-fas23 = fas23.iloc[1:94,0:3]
+fas23 = fas23.iloc[1:98,0:3]
 
 st.write("# Fasilitas Pendidikan")
 #this is content
