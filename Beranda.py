@@ -28,12 +28,12 @@ t2.markdown(" **Halaman Utama Dashboard Data Desa Cibiru Wetan** ")
  #st.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2023/01/branding-cibiru-wetan-WISATA-1-800x197.png')
 ### Import Data Lengkap
 url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
+conn  = st.connection("gsheets", type=GSheetsConnection)
 datadesa = conn.read(spreadsheet=url)
 datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
 st.write("# Rekap Data Desa Cibiru Wetan")
 
 url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
-conn  = st.connection("gsheets", type=GSheetsConnection)
 datap2024 = conn.read(spreadsheet=url2)
 datap2024 = pd.DataFrame(datap2024)                       #convert ke panda df
 jp2024=datap2024.iloc[0:16,1:3].sum().sum()
