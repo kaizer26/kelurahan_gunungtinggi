@@ -10,7 +10,7 @@ import pandas as pd
 from streamlit_gsheets import GSheetsConnection
 
 st.set_page_config(
-    page_title="Beranda",
+    page_title="Dashboard Data Desa Cibiru Wetan",
     page_icon="🏠",
 )
 
