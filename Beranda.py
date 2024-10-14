@@ -80,7 +80,7 @@ pd2.metric(label='SD',value="🎒"+str(sdt))
 pd3.metric(label='SMP',value="🏫"+str(smpt))
 pd4.metric(label='SMA/K',value="📘"+str(smat))
 pd5.write("")
-st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun 2023, antara lain SD/sederajat sebanyak ",str(sdt)," (termasuk ",str(mi)," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",str(smpt)," (termasuk ",str(mts)," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",str(smat)," (termasuk ",str(ma)," Madrasah Aliyah/MA).")
+st.write("Berdasarkan data Kementerian Pendidikan dan Budaya (Kemendikbud) dan Kementerian Agama, jumlah sekolah yang terdaftar di Desa Cibiru Wetan pada tahun ",str(int(datadesa.iloc[21,1])),", antara lain SD/sederajat sebanyak ",str(sdt)," (termasuk ",str(mi)," Madrasah Ibtidaiyah/MI), SMP/sederajat sebanyak ",str(smpt)," (termasuk ",str(mts)," Madrasah Tsanawiyah/MTs), dan SMA/SMK/sederajat sebanyak ",str(smat)," (termasuk ",str(ma)," Madrasah Aliyah/MA).")
 
 url10='https://docs.google.com/spreadsheets/d/15sfFQbVZUmseAfOv70EXI4pe3wUusL9OvfeOex43ueg/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
@@ -92,7 +92,7 @@ pt23 = pt23.iloc[0:65,1:4]
 p1,p2 = st.columns((1,1))
 p1.metric(label='Hasil panen Kopi (Ton/Ha)',value="☕"+str(int(pt23.iloc[60,1])))
 p2.metric(label='Hasil Panen Padi Sawah (Ton/Ha)',value="🌾"+str(int(pt23.iloc[7,1])))
-st.write("Pada tahun 2023, perkebunan kopi di Desa Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[60,0]))," hektar (Ha) menghasilkan panen sebanyak ",str(int(pt23.iloc[60,1]))," Ton untuk setiap hektarnya. Selain itu, lahan sawah padi di Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[7,0]))," hektar (Ha) memiliki hasil panen sebanyak ",str(int(pt23.iloc[7,1]))," Ton untuk setiap hektarnya.")
+st.write("Pada tahun ",str(int(datadesa.iloc[22,1])),", perkebunan kopi di Desa Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[60,0]))," hektar (Ha) menghasilkan panen sebanyak ",str(int(pt23.iloc[60,1]))," Ton untuk setiap hektarnya. Selain itu, lahan sawah padi di Cibiru Wetan yang memiliki luas ",str(int(pt23.iloc[7,0]))," hektar (Ha) memiliki hasil panen sebanyak ",str(int(pt23.iloc[7,1]))," Ton untuk setiap hektarnya.")
 
 import pydeck as pdk
 st.write("# Profil Desa Cibiru Wetan")
