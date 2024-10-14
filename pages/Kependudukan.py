@@ -6,6 +6,10 @@ st.set_page_config(
     page_title="Kependudukan",
     page_icon=":family:",
 )
+url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
+conn  = st.connection("gsheets", type=GSheetsConnection)
+datadesa = conn.read(spreadsheet=url)
+datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
 
 #this is the header
 t1, t2 = st.columns((0.25,1))
@@ -16,12 +20,11 @@ t2.markdown(" **Halaman Kependudukan Desa Cibiru Wetan** ")
 
 #this is content
 st.write("# Penduduk Berdasarkan Jenis Kelamin dan Kelompok Usia")
-pilih1 = st.radio('Tahun :',[2024,2023])
+pilih1 = st.radio('Tahun :',[str(int(datadesa.iloc[18,1])),str(int(datadesa.iloc[19,1]))])
 
 ##data penduduk
 ### Import tahun 2024
 url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
-conn  = st.connection("gsheets", type=GSheetsConnection)
 datap2024 = conn.read(spreadsheet=url2)
 datap2024 = pd.DataFrame(datap2024)                       #convert ke panda df
 jp2024=datap2024.iloc[0:16,1:3].sum().sum()
@@ -47,7 +50,7 @@ datapiramida2.columns = jk
 import altair as alt
 # Convert wide-form data to long-form
 # See: https://altair-viz.github.io/user_guide/data.html#long-form-vs-wide-form-data
-if pilih1 ==2024:
+if pilih1 ==str(int(datadesa.iloc[18,1])):
     data = pd.melt(datapiramida.reset_index(), id_vars=["index"])
     # Horizontal stacked bar chart
     chart = (
@@ -64,7 +67,7 @@ if pilih1 ==2024:
     st.write("Total Penduduk:",int(jp2024)," | Penduduk Laki-laki:",int(datap2024.iloc[0:16,1].sum().sum())," | Penduduk Perempuan:",int(datap2024.iloc[0:16,2].sum().sum()))
     with st.expander("lihat tabel"):
         st.dataframe(datap2024.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
-elif pilih1==2023:
+elif pilih1==str(int(datadesa.iloc[19,1])):
     # Convert wide-form data to long-form
     data2 = pd.melt(datapiramida2.reset_index(), id_vars=["index"])
     chart2 = (
@@ -88,7 +91,7 @@ kerja23 = pd.DataFrame(kerja23)
 stkerja23 = kerja23.iloc[16:18,0:4]
 kerja23 = kerja23.iloc[0:13,0:4]
 
-st.write('# Jumlah Angkatan Kerja Berdasarkan Status Pekerjaan Tahun 2023')
+st.write('# Jumlah Angkatan Kerja Berdasarkan Status Pekerjaan Tahun ',str(int(datadesa.iloc[20,1])))
 stkerja23.index = list(stkerja23.iloc[0:2,0])
 stkerja23 = stkerja23.iloc[0:2,1:4]
 #######
@@ -121,7 +124,7 @@ st.altair_chart(charttp1,use_container_width=True)
 with st.expander("lihat tabel"):
     st.dataframe(stkerja23,use_container_width=True)
 
-st.write('# Jumlah Penduduk Berdasarkan Jenis Pekerjaan Tahun 2023')
+st.write('# Jumlah Penduduk Berdasarkan Jenis Pekerjaan Tahun ',str(int(datadesa.iloc[20,1])))
 kerja23.index = list(kerja23.iloc[0:13,0])
 kerja23 = kerja23.iloc[0:13,1:4]
 kerja23 = pd.DataFrame(kerja23)
@@ -155,7 +158,7 @@ st.altair_chart(charttp2,use_container_width=True)
 with st.expander("lihat tabel"):
     st.dataframe(kerja23,use_container_width=True)
 
-st.write('# Pendidikan Tenaga Kerja Tahun 2023')
+st.write('# Pendidikan Tenaga Kerja Tahun ',str(int(datadesa.iloc[20,1])))
 url5 = 'https://docs.google.com/spreadsheets/d/1BaFB0sFvKIv_e3G8LX_6su-vwDUJKhZLWeE1knU5bT8/edit?usp=sharing'
 pdik23 = conn.read(spreadsheet=url5)
 pdik23 = pd.DataFrame(pdik23)
@@ -193,7 +196,7 @@ st.altair_chart(charttp3,use_container_width=True)
 with st.expander("lihat tabel"):
     st.dataframe(pdik23,use_container_width=True)
 
-st.write('# Jumlah Penduduk Menurut Etnis Tahun 2023')
+st.write('# Jumlah Penduduk Menurut Etnis Tahun ',str(int(datadesa.iloc[20,1])))
 url6 = 'https://docs.google.com/spreadsheets/d/1lrJgC7IgzaYUElTEzhix6m2Wz-u-ThN1WXsGRHgMv8s/edit?usp=sharing'
 et23 = conn.read(spreadsheet=url6)
 et23 = pd.DataFrame(et23)
@@ -231,7 +234,7 @@ st.altair_chart(charttp4,use_container_width=True)
 with st.expander("lihat tabel"):
     st.dataframe(et23,use_container_width=True)
 
-st.write('# Jumlah Penduduk Menurut Agama Tahun 2023')
+st.write('# Jumlah Penduduk Menurut Agama Tahun ',str(int(datadesa.iloc[19,1])))
 url7 = 'https://docs.google.com/spreadsheets/d/1dUtknRWJL7X_5qOs0zLF4zbFH2B4qPjyjkI6SMUxzwY/edit?usp=sharing'
 agam23 = conn.read(spreadsheet=url7)
 agam23 = pd.DataFrame(agam23)
