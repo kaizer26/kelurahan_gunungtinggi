@@ -6,6 +6,10 @@ st.set_page_config(
     page_title="Pertanian dan Perkebunan",
     page_icon="🌴",
 )
+url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
+conn  = st.connection("gsheets", type=GSheetsConnection)
+datadesa = conn.read(spreadsheet=url)
+datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
 
 #this is the header
 t1, t2 = st.columns((0.25,1))
@@ -13,10 +17,8 @@ t1, t2 = st.columns((0.25,1))
 t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
 t2.title("Desa Cantik Cibiru Wetan")
 t2.markdown(" **Halaman Data Pertanian dan Perkebunan Desa Cibiru Wetan** ")
-t2.write(" **Tahun 2023** ")
 
 url10='https://docs.google.com/spreadsheets/d/15sfFQbVZUmseAfOv70EXI4pe3wUusL9OvfeOex43ueg/edit?usp=sharing'
-conn  = st.connection("gsheets", type=GSheetsConnection)
 pt23 = conn.read(spreadsheet=url10)
 pt23 = pd.DataFrame(pt23)                       #convert ke panda df
 lahan23 = pt23.iloc[68:73,0:2]
@@ -150,6 +152,7 @@ st.altair_chart(charttp3,use_container_width=True)
 
 st.write('# Tabel Luas Lahan Hasil Pertanian dan Perkebunan')
 st.dataframe(pt23,use_container_width=True)
+st.write(" Keterangan: data di atas merupakan data tahun ",str(int(datadesa.iloc[22,1])))
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
