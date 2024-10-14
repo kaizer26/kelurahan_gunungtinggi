@@ -80,7 +80,7 @@ elif pilih1==str(int(datadesa.iloc[19,1])):
         )
     )
     st.altair_chart(chart2, use_container_width=True)   #bikin piramida chart
-    st.write("Total Penduduk:",jp2023," | Penduduk Laki-laki:",int(datap2023.iloc[0:16,1].sum().sum())," | Penduduk Perempuan:",int(datap2023.iloc[0:16,2].sum().sum()))
+    st.write("Total Penduduk:",int(jp2023)," | Penduduk Laki-laki:",int(datap2023.iloc[0:16,1].sum().sum())," | Penduduk Perempuan:",int(datap2023.iloc[0:16,2].sum().sum()))
     with st.expander("lihat tabel"):
         st.dataframe(datap2023.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
 
