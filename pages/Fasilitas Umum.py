@@ -7,16 +7,19 @@ st.set_page_config(
     page_icon=":cityscape:",
 )
 
+url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
+conn  = st.connection("gsheets", type=GSheetsConnection)
+datadesa = conn.read(spreadsheet=url)
+datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
 #this is the header
 t1, t2 = st.columns((0.25,1))
 
 t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
 t2.title("Desa Cantik Cibiru Wetan")
 t2.markdown(" **Halaman Data Fasilitas Umum Desa Cibiru Wetan** ")
-t2.write(" **Tahun 2023** ")
+t2.write(" Tahun ",str(int(datadesa.iloc[21,1])))
 
 url9='https://docs.google.com/spreadsheets/d/1Skt6QdDL1_EKQJ3MgdJG53-FtCevRv56pRZNOyBf4lI/edit?usp=sharing'
-conn  = st.connection("gsheets", type=GSheetsConnection)
 fas23 = conn.read(spreadsheet=url9)
 fas23 = pd.DataFrame(fas23)                       #convert ke panda df
 fas23 = fas23.iloc[1:94,0:3]
