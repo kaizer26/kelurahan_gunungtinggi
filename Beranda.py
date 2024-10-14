@@ -26,6 +26,10 @@ t2.markdown(" **Halaman Utama Dashboard Data Desa Cibiru Wetan** ")
 
 #this is content
  #st.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2023/01/branding-cibiru-wetan-WISATA-1-800x197.png')
+### Import Data Lengkap
+url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
+datadesa = conn.read(spreadsheet=url)
+datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
 st.write("# Rekap Data Desa Cibiru Wetan")
 
 url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
@@ -60,7 +64,7 @@ m1.write("")
 m2.metric(label ='Penduduk Laki-laki',value = "🚹"+str(int(pd2024laki)))
 m3.metric(label = 'Penduduk Perempuan',value = "🚺"+str(int(pd2024pere)))
 m4.write("")
-st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun ",str(int(datap2024.iloc[18,1]))," sebanyak ",str(int(datap2024.iloc[20,1])),". Jumlah penduduk pada periode tersebut sebanyak ",str(int(jp2024))," jiwa dengan penduduk laki-laki sebanyak ",str(int(pd2024laki))," jiwa dan penduduk perempuan sebanyak",str(pd2024pere)," jiwa.")
+st.write("Berdasarkan data Kementerian Dalam Negeri (Kemendagri), jumlah kartu keluarga (KK) yang terdaftar di Desa Cibiru Wetan pada tahun ",str(int(datadesa.iloc[18,1]))," sebanyak ",str(int(datap2024.iloc[20,1])),". Jumlah penduduk pada periode tersebut sebanyak ",str(int(jp2024))," jiwa dengan penduduk laki-laki sebanyak ",str(int(pd2024laki))," jiwa dan penduduk perempuan sebanyak",str(pd2024pere)," jiwa.")
 
 url9='https://docs.google.com/spreadsheets/d/1Skt6QdDL1_EKQJ3MgdJG53-FtCevRv56pRZNOyBf4lI/edit?usp=sharing'
 fas23 = conn.read(spreadsheet=url9)
@@ -98,12 +102,6 @@ with st.sidebar:
     st.caption("""Dashboard ini menyediakan data kewilayahan dan karakteristik penduduk di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
 
 
-
-
-### Import Data Lengkap
-url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
-
-datadesa = conn.read(spreadsheet=url)
 datadesa1 = pd.DataFrame(datadesa.iloc[0:12,0:2])                       #convert ke panda df
 desa = datadesa1.style.hide(axis=0).hide(axis=1)                     #menyembunyikan nomor tabel dan header                                   #menyembunyikan header
 st.image('https://i.ytimg.com/vi/fw8YWKACQ00/maxresdefault.jpg')
