@@ -7,10 +7,10 @@ st.set_page_config(
     page_icon="📚",
 )
 
-url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
+urlbuku = 'https://docs.google.com/spreadsheets/d/1QmIOm1JnY9I9TkEUMlWXtZjs-igTHMfU45F1KLzAO8g/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
-datadesa = conn.read(spreadsheet=url)
-datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
+publikasi = conn.read(spreadsheet=urlbuku)
+publikasi = pd.DataFrame(publikasi)                       #convert ke panda df
 #this is the header
 t1, t2 = st.columns((0.25,1))
 
@@ -29,6 +29,17 @@ pd2.image('cover_publikasi/monografi2023.png')
 pd2.write("[Unduh](%s)"%urlmono23)
 pd3.image('cover_publikasi/statistik2023.png')
 pd3.write("[Unduh](%s)"%urlstat23)
+
+pd1_1 = str(publikasi.iloc[3,1])
+pd1,pd2,pd3 = st.columns((1,1,1))
+pd1.image(str(publikasi.iloc[3,2]))
+pd1.write(str(publikasi.iloc[3,0]))
+pd1.write("[Unduh](%s)"%pd1_1)
+pd2.write('')
+pd2.write("")
+pd3.image('')
+pd3.write("")
+
 
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
