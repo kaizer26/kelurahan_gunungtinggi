@@ -51,7 +51,7 @@ lakipere2024.columns = list(["Laki-laki","Perempuan"])
 
 m1, m2, m3 = st.columns((1,1,1))
 m1.write("")
-m2.metric(label = 'Total KK',value = "📋"+str(int(datap2024.iloc[20,1])))
+m2.metric(label = 'Total KK',value = "📋"+str(int(datap2024.iloc[18,1])))
 m3.write("")
 
 m1, m2, m3 = st.columns((1,1,1))
