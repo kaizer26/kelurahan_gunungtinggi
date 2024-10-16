@@ -18,10 +18,6 @@ t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon
 t2.title("Desa Cantik Cibiru Wetan")
 t2.markdown(" **Halaman Unduh Publikasi Desa Cibiru Wetan** ")
 
-urlmono23 = 'https://drive.google.com/file/d/1wqu3XjSCo_ro7pV_xgxJF5WNlBYAW3rb/view?usp=sharing'
-urlstat23 = 'https://drive.google.com/file/d/1hTDGnTyuNZt0_n6CyZXk4ZzO6yKyaMSs/view?usp=sharing'
-urlprof24 = 'https://drive.google.com/file/d/1T75Q0mMxDhrK234yPxjvSKsHexCCjQuC/view?usp=sharing'
-
 pd1,pd2,pd3 = st.columns((1,1,1))
 pd1.image(str(publikasi.iloc[0,3]))
 pd1.write(str(publikasi.iloc[0,0]))
