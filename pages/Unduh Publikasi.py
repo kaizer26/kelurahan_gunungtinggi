@@ -24,7 +24,7 @@ urlprof24 = 'https://drive.google.com/file/d/1T75Q0mMxDhrK234yPxjvSKsHexCCjQuC/v
 
 pd1,pd2,pd3 = st.columns((1,1,1))
 pd1.image('cover_publikasi/profil2024.png')
-pd1.write("[Unduh](%s)"urlprof24)
+pd1.write("[Unduh](%s)"%urlprof24)
 pd2.image('cover_publikasi/monografi2023.png')
 pd2.write("[Unduh](%s)"%urlmono23)
 pd3.image('cover_publikasi/statistik2023.png')
