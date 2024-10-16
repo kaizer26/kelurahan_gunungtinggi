@@ -23,12 +23,15 @@ urlstat23 = 'https://drive.google.com/file/d/1hTDGnTyuNZt0_n6CyZXk4ZzO6yKyaMSs/v
 urlprof24 = 'https://drive.google.com/file/d/1T75Q0mMxDhrK234yPxjvSKsHexCCjQuC/view?usp=sharing'
 
 pd1,pd2,pd3 = st.columns((1,1,1))
-pd1.image('cover_publikasi/profil2024.png')
-pd1.write("[Unduh](%s)"%urlprof24)
-pd2.image('cover_publikasi/monografi2023.png')
-pd2.write("[Unduh](%s)"%urlmono23)
-pd3.image('cover_publikasi/statistik2023.png')
-pd3.write("[Unduh](%s)"%urlstat23)
+pd1.image(str(publikasi.iloc[0,3]))
+pd1.write(str(publikasi.iloc[0,0]))
+pd1.write("[Unduh](%s)"%str(publikasi.iloc[0,1]))
+pd2.image(str(publikasi.iloc[1,3]))
+pd2.write(str(publikasi.iloc[1,0]))
+pd2.write("[Unduh](%s)"%str(publikasi.iloc[1,1]))
+pd3.image(str(publikasi.iloc[2,3]))
+pd3.write(str(publikasi.iloc[2,0]))
+pd3.write("[Unduh](%s)"%str(publikasi.iloc[2,1]))
 
 pd1,pd2,pd3 = st.columns((1,1,1))
 pd1.image(str(publikasi.iloc[3,3]))
