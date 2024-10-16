@@ -17,12 +17,15 @@ t1, t2 = st.columns((0.25,1))
 t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
 t2.title("Desa Cantik Cibiru Wetan")
 t2.markdown(" **Halaman Unduh Publikasi Desa Cibiru Wetan** ")
+# Inisialisasi i
+i = 0
+
 # Loop melalui data publikasi
-for i in range(len(publikasi)):
+while i < len(publikasi):
     # Buat tiga kolom untuk setiap iterasi
     pd1, pd2, pd3 = st.columns((1, 1, 1))
 
-    # Cek apakah data publikasi masih ada
+    # Cek untuk kolom pertama
     if i < len(publikasi):
         pd1.image(str(publikasi.iloc[i, 3]))
         pd1.write(str(publikasi.iloc[i, 0]))
@@ -30,7 +33,7 @@ for i in range(len(publikasi)):
     else:
         pd1.write('')
 
-    # Cek untuk kolom kedua dan ketiga, menggunakan indeks yang sesuai
+    # Cek untuk kolom kedua
     if i + 1 < len(publikasi):
         pd2.image(str(publikasi.iloc[i + 1, 3]))
         pd2.write(str(publikasi.iloc[i + 1, 0]))
@@ -38,6 +41,7 @@ for i in range(len(publikasi)):
     else:
         pd2.write('')
 
+    # Cek untuk kolom ketiga
     if i + 2 < len(publikasi):
         pd3.image(str(publikasi.iloc[i + 2, 3]))
         pd3.write(str(publikasi.iloc[i + 2, 0]))
@@ -46,8 +50,8 @@ for i in range(len(publikasi)):
         pd3.write('')
 
     # Increment i untuk memproses tiga item sekaligus
-    i += 2
-
+    i += 3
+    
 with st.sidebar:
     st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
     st.header("Dashboard Unduh Publikasi Desa Cibiru Wetan")
