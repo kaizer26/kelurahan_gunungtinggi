@@ -32,7 +32,7 @@ pd3.write("[Unduh](%s)"%urlstat23)
 
 pd1_1 = str(publikasi.iloc[3,1])
 pd1,pd2,pd3 = st.columns((1,1,1))
-#pd1.image(str(publikasi.iloc[3,2]))
+pd1.image(str(publikasi.iloc[3,2]))
 pd1.write(str(publikasi.iloc[3,0]))
 pd1.write("[Unduh](%s)"%pd1_1)
 pd2.write('')
