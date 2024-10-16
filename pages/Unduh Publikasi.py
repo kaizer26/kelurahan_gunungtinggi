@@ -37,7 +37,7 @@ pd1.write(str(publikasi.iloc[3,0]))
 pd1.write("[Unduh](%s)"%pd1_1)
 pd2.write('')
 pd2.write("")
-pd3.image('')
+pd3.write('')
 pd3.write("")
 
 
