@@ -144,6 +144,13 @@ url_web = 'https://cibiruwetan.desa.id'
 
 st.write("[instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s)" % url_web)
 
+# URL gambar dan link tujuan
+image_url = "https://static.vecteezy.com/system/resources/previews/018/930/415/non_2x/instagram-logo-instagram-icon-transparent-free-png.png"
+link_url = "https://www.instagram.com/desa_cibiruwetan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+
+# Menggunakan HTML untuk membuat gambar yang dapat diklik
+st.markdown(f'<a href="{link_url}" target="_blank"><img src="{image_url}" alt="Clickable Image" style="width:300px;"></a>', unsafe_allow_html=True)
+
 st.write("**📧: desawisatacibiruwetan@gmail.com**")
 urlkantor = 'https://maps.app.goo.gl/4Swdj5bh4YfkTmn76'
 st.write("🏢: **[Jl. Cibangkonol No.28, Cibiru Wetan, Kec. Cileunyi, Kabupaten Bandung, Jawa Barat 40625](%s)**"%urlkantor)
