@@ -144,8 +144,8 @@ web = 'https://www.freepnglogos.com/uploads/logo-website-png/logo-website-websit
 url_ig = 'https://www.instagram.com/desa_cibiruwetan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
 url_web = 'https://cibiruwetan.desa.id'
-pd1,pd2,pd3 = st.columns((1,1,1))
 st.write("[instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s)" % url_web)
+pd1,pd2,pd3 = st.columns((1,1,1))
 
 # Menggunakan HTML untuk membuat gambar yang dapat diklik
 pd1.markdown(f'<a href="{url_ig}" target="_blank"><img src="{ig}" alt="Clickable Image" style="width:120px;"></a>', unsafe_allow_html=True)
