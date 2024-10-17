@@ -145,7 +145,7 @@ url_ig = 'https://www.instagram.com/desa_cibiruwetan?utm_source=ig_web_button_sh
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
 url_web = 'https://cibiruwetan.desa.id'
 #st.write("[instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s)" % url_web)
-pd1,pd2,pd3 = st.columns((1,1,1,1,1))
+pd1,pd2,pd3,pd4,pd5 = st.columns((1,1,1,1,1))
 
 # Menggunakan HTML untuk membuat gambar yang dapat diklik
 pd1.write('')
