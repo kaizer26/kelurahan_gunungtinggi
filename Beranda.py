@@ -108,17 +108,6 @@ st.image('https://i.ytimg.com/vi/fw8YWKACQ00/maxresdefault.jpg')
 st.write(desa.to_html(),unsafe_allow_html=True,use_container_width=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Peta Lokasi Desa Cibiru Wetan")
-#mapdata = pd.DataFrame([
-#    {
-#        'site': 'Big Ben',
-#        'attraction_type': 'Clock Tower',
-#        'lat': -6.921365801298824,
-#        'lng': 107.72940295582379
-#    }
-#])
-##color_lookup = pdk.data_utils.assign_random_colors(mapdata['attraction_type'])
-# Assign a color based on attraction_type
-#mapdata['color'] = mapdata.apply(lambda row: color_lookup.get(row['attraction_type']), axis=1)
 mapimage = 'https://www.google.com/maps/vt/data=ZXYT48-fmLw7vEGYqBAWelAfa34jOHxmz4wg8me2i8GFgqBVM8DqF42inRiTkwkiEO5Ev9VeTOmWNwKyGW8xgj8VsclxjChGnOqXTjpZ1f3y_7H5Qq7P9BYST4nGLG1tkm32T0C7Zem8Azyk7WaIy0isvhrG4dsX8GccMm1hFQq6eVMK4mICuCk2IbaiybMbF7EbHVtURq7C19E7jMT9JL6VHUudZs8UfBs5xcEzfMBnkx2KRh1ug6bkxGHCjrYao4EaI_mOLko0BOMYoOlFqGtLwbUFjJ_DACUAxTXBOx0fciiD'
 urlmaps = 'https://maps.app.goo.gl/EqKfyTcDpfHrS4pa8'
 st.markdown(
@@ -127,19 +116,7 @@ st.markdown(
     f'</a>',
     unsafe_allow_html=True
 )
-
-#st.pydeck_chart(pdk.Deck(
-#       map_style="road",
-#       initial_view_state=pdk.ViewState(
-#           latitude=-6.921365801298824,
-#            longitude=107.72940295582379,
-#            zoom=14,
-#            pitch=50,
-#)
-#)
-#)
-
-st.write(" [lihat di Google Maps](%s)"%urlmaps)
+st.write("Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat")
 
 datadesa2 = pd.DataFrame(datadesa.iloc[12:18,0:2])                       #convert ke panda df
 desa2 = datadesa2.style.hide(axis=0).hide(axis=1)                        #menyembunyikan header dan nomor tabel
