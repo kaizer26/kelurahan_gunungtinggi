@@ -139,15 +139,18 @@ st.write(desa2.to_html(),unsafe_allow_html=True,use_container_width=True)       
 
 st.write("# Kunjungi Kami")
 ig = "https://static.vecteezy.com/system/resources/previews/018/930/415/non_2x/instagram-logo-instagram-icon-transparent-free-png.png"
+yt = 'https://static.vecteezy.com/system/resources/thumbnails/018/930/572/small/youtube-logo-youtube-icon-transparent-free-png.png'
+web = 'https://www.freepnglogos.com/uploads/logo-website-png/logo-website-website-logo-png-transparent-background-background-15.png'
 url_ig = 'https://www.instagram.com/desa_cibiruwetan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
 url_web = 'https://cibiruwetan.desa.id'
-
+pd1,pd2,pd3 = st.columns((1,1,1))
 st.write("[instagram](%s)" % url_ig," | [youtube](%s)" % url_yt," | [website](%s)" % url_web)
 
 # Menggunakan HTML untuk membuat gambar yang dapat diklik
-st.markdown(f'<a href="{url_ig}" target="_blank"><img src="{ig}" alt="Clickable Image" style="width:300px;"></a>', unsafe_allow_html=True)
-
+pd1.markdown(f'<a href="{url_ig}" target="_blank"><img src="{ig}" alt="Clickable Image" style="width:120px;"></a>', unsafe_allow_html=True)
+pd2.markdown(f'<a href="{url_yt}" target="_blank"><img src="{yt}" alt="Clickable Image" style="width:120px;"></a>', unsafe_allow_html=True)
+pd3.markdown(f'<a href="{url_web}" target="_blank"><img src="{web}" alt="Clickable Image" style="width:120px;"></a>', unsafe_allow_html=True)
 st.write("**📧: desawisatacibiruwetan@gmail.com**")
 urlkantor = 'https://maps.app.goo.gl/4Swdj5bh4YfkTmn76'
 st.write("🏢: **[Jl. Cibangkonol No.28, Cibiru Wetan, Kec. Cileunyi, Kabupaten Bandung, Jawa Barat 40625](%s)**"%urlkantor)
