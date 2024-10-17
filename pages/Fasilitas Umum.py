@@ -95,6 +95,6 @@ st.dataframe(fas23,use_container_width=True)
 st.write(" Keterangan: data di atas merupakan data tahun ",str(int(datadesa.iloc[21,1])))
 
 with st.sidebar:
-    st.image('https://www.bpskotabaru.com/desacantik/public/images/Logo%20DESCAN_1_002.png',width=100)
+    st.image('desa_cantik.png',width=100)
     st.header("Dashboard Data Fasilitas Umum Desa Cibiru Wetan")
     st.caption("""Menu fasilitas umum menyediakan data jumlah fasilitas yang dapat diakses masyarakat, meliputi fasilitas pendidikan, kesehatan, perbankan, dan lainnya di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
