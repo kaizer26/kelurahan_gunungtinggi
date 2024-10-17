@@ -138,8 +138,8 @@ desa2 = datadesa2.style.hide(axis=0).hide(axis=1)                        #menyem
 st.write(desa2.to_html(),unsafe_allow_html=True,use_container_width=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Kunjungi Kami")
-ig = "https://www.transparentpng.com/thumb/logo-instagram/z75gfy-instagram-logo-png.png"
-yt = 'https://www.freeiconspng.com/thumbs/youtube-logo-png/hd-youtube-logo-png-transparent-background-20.png'
+ig = "https://images.vexels.com/content/137380/preview/instagram-icon-logo-748850.png"
+yt = 'https://www.pngkey.com/png/full/3-32240_logo-youtube-png-transparent-background-youtube-icon.png'
 web = 'https://cdn-icons-png.flaticon.com/512/5339/5339181.png'
 url_ig = 'https://www.instagram.com/desa_cibiruwetan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
