@@ -138,9 +138,9 @@ desa2 = datadesa2.style.hide(axis=0).hide(axis=1)                        #menyem
 st.write(desa2.to_html(),unsafe_allow_html=True,use_container_width=True)         #menyembunyikan nomor tabel dari .to_html sampe True)
 
 st.write("# Kunjungi Kami")
-ig = "https://static.vecteezy.com/system/resources/previews/018/930/415/non_2x/instagram-logo-instagram-icon-transparent-free-png.png"
+ig = "https://www.transparentpng.com/thumb/logo-instagram/z75gfy-instagram-logo-png.png"
 yt = 'https://www.freeiconspng.com/thumbs/youtube-logo-png/hd-youtube-logo-png-transparent-background-20.png'
-web = 'https://www.freepnglogos.com/uploads/logo-website-png/logo-website-website-logo-png-transparent-background-background-15.png'
+web = 'https://cdn-icons-png.flaticon.com/512/5339/5339181.png'
 url_ig = 'https://www.instagram.com/desa_cibiruwetan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
 url_yt = 'https://youtube.com/@desa_cibiruwetan?si=js2kX36jVxCMI64F'
 url_web = 'https://cibiruwetan.desa.id'
