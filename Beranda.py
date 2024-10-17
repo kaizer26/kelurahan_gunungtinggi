@@ -121,7 +121,7 @@ st.write("# Peta Lokasi Desa Cibiru Wetan")
 #mapdata['color'] = mapdata.apply(lambda row: color_lookup.get(row['attraction_type']), axis=1)
 mapimage = 'https://www.google.com/maps/vt/data=ZXYT48-fmLw7vEGYqBAWelAfa34jOHxmz4wg8me2i8GFgqBVM8DqF42inRiTkwkiEO5Ev9VeTOmWNwKyGW8xgj8VsclxjChGnOqXTjpZ1f3y_7H5Qq7P9BYST4nGLG1tkm32T0C7Zem8Azyk7WaIy0isvhrG4dsX8GccMm1hFQq6eVMK4mICuCk2IbaiybMbF7EbHVtURq7C19E7jMT9JL6VHUudZs8UfBs5xcEzfMBnkx2KRh1ug6bkxGHCjrYao4EaI_mOLko0BOMYoOlFqGtLwbUFjJ_DACUAxTXBOx0fciiD'
 urlmaps = 'https://maps.app.goo.gl/EqKfyTcDpfHrS4pa8'
-st.markdown(f'<a href="{urlmaps}" target="_blank"><img src="{mapimage}" alt="Clickable Image" style="width:300px;"></a>', unsafe_allow_html=True)
+st.markdown(f'<a href="{urlmaps}" target="_blank"><img src="{mapimage}" alt="Clickable Image" style="width:100%;"></a>', unsafe_allow_html=True)
 #st.pydeck_chart(pdk.Deck(
 #       map_style="road",
 #       initial_view_state=pdk.ViewState(
