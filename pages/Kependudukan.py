@@ -14,7 +14,7 @@ datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
 #this is the header
 t1, t2 = st.columns((0.25,1))
 
-t1.image('https://www.desawisata-cibiruwetan.com/wp-content/uploads/2024/09/icon-logo-dewi-warna-600x721.png', width = 100)
+t1.image('cibiruwetan.png', width = 100)
 t2.title("Desa Cantik Cibiru Wetan")
 t2.markdown(" **Halaman Kependudukan Desa Cibiru Wetan** ")
 
