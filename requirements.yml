@@ -1,0 +1,13 @@
+name: streamlit-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - streamlit
+  - pandas
+  - geopandas
+  - shapely
+  - fiona
+  - pyproj
+  - gspread
+  - oauth2client
