@@ -26,9 +26,13 @@ st.set_page_config(
 
 t1, t2 = st.columns((0.25,1))
 
-t1.image('logo pemkab tanbu.png', width = 100)
+t1.image('logo pemkab tanbu.png', width=100)
 t2.title("Kelurahan Cantik Gunung Tinggi")
-t2.markdown(" **Halaman Utama Dashboard Data Kelurahan Gunung Tinggi** ")
+t2.markdown("**Halaman Utama Dashboard Data Kelurahan Gunung Tinggi**")
+t2.markdown(
+    "Jika ingin mengakses website desa bisa klik pada link berikut: "
+    "[https://kelurahangunungtinggi.streamlit.app/](https://kelurahangunungtinggi.streamlit.app/)"
+)
 
 
 #this is content
