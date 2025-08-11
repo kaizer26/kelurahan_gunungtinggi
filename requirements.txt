@@ -6,3 +6,8 @@ pydeck
 matplotlib
 folium
 plotly
+gspread
+oauth2client
+leafmap
+streamlit_folium
+streamlit_gsheets
