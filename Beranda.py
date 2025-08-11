@@ -31,7 +31,7 @@ t2.title("Kelurahan Cantik Gunung Tinggi")
 t2.markdown("**Halaman Utama Dashboard Data Kelurahan Gunung Tinggi**")
 t2.markdown(
     "Jika ingin mengakses website desa bisa klik pada link berikut: "
-    "[https://kelurahangunungtinggi.streamlit.app/](https://kelurahangunungtinggi.streamlit.app/)"
+    "[https://gunungtinggi.website.desa.id/](https://gunungtinggi.website.desa.id/)"
 )
 
 
