@@ -6,7 +6,7 @@ st.set_page_config(
     page_title="Kependudukan",
     page_icon=":family:",
 )
-url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
+url = 'https://docs.google.com/spreadsheets/d/1n6RkwCmYWQm4Uc21GtgZ0Tc6BracOxevkqgtEq8lMoY/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
 datadesa = conn.read(spreadsheet=url)
 datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
@@ -14,19 +14,26 @@ datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
 #this is the header
 t1, t2 = st.columns((0.25,1))
 
-t1.image('cibiruwetan.png', width = 100)
-t2.title("Desa Cantik Cibiru Wetan")
-t2.markdown(" **Halaman Kependudukan Desa Cibiru Wetan** ")
+t1.image('logo pemkab tanbu.png', width = 100)
+t2.title("Kelurahan Cantik Gunung Tinggi")
+t2.markdown(" **Halaman Kependudukan Kelurahan Gunung Tinggi** ")
 
 #this is content
 st.write("# Penduduk Berdasarkan Jenis Kelamin dan Kelompok Usia")
-pilih1 = st.radio('Tahun :',[str(int(datadesa.iloc[18,1])),str(int(datadesa.iloc[19,1]))])
+pilih1 = st.radio('Tahun :',[str(int(datadesa.iloc[18,1]))])
+# pilih1 = st.radio('Tahun :',[str(int(datadesa.iloc[18,1])),str(int(datadesa.iloc[19,1]))])
 
 ##data penduduk
 ### Import tahun 2024
-url2='https://docs.google.com/spreadsheets/d/16AtuoSRO-7SwU8E6jJDNzdoX6S0DyRFkpaduxBhZ748/edit?usp=sharing'
+url2='https://docs.google.com/spreadsheets/d/1Lq_4bictqMTRzKmFAQ5K4i6Tb_W9nTC07bbz-tM_HTU/edit?usp=sharing'
 datap2024 = conn.read(spreadsheet=url2)
 datap2024 = pd.DataFrame(datap2024)                       #convert ke panda df
+
+
+# Konversi ke numerik (otomatis ubah teks menjadi NaN jika tak bisa dikonversi)
+datap2024.iloc[:, 1] = pd.to_numeric(datap2024.iloc[:, 1], errors='coerce')
+datap2024.iloc[:, 2] = pd.to_numeric(datap2024.iloc[:, 2], errors='coerce')
+
 jp2024=datap2024.iloc[0:16,1:3].sum().sum()
 
 datapiramida = datap2024.iloc[0:16,1:3]
@@ -36,7 +43,7 @@ datapiramida.index = list(datap2024.iloc[0:16,0])
 datapiramida.columns = jk
 
 #Import data 2023
-url3 = 'https://docs.google.com/spreadsheets/d/196eZm3CzaY1FIapq0nnWBc18dFz0yXxtPrxtlYaqRLc/edit?usp=sharing'
+url3 = 'https://docs.google.com/spreadsheets/d/11nLD7leY49oRAgFKeTOyQHF0tD348vk64NNKCVkN4uk/edit?usp=sharing'
 datap2023 = conn.read(spreadsheet=url3)
 datap2023 = pd.DataFrame(datap2023)                       #convert ke panda df
 jp2023=datap2023.iloc[0:16,1:3].sum().sum()
@@ -64,7 +71,7 @@ if pilih1 ==str(int(datadesa.iloc[18,1])):
     )
 
     st.altair_chart(chart, use_container_width=True)   #bikin piramida chart
-    st.write("Total Penduduk:",int(jp2024)," | Penduduk Laki-laki:",int(datap2024.iloc[0:16,1].sum().sum())," | Penduduk Perempuan:",int(datap2024.iloc[0:16,2].sum().sum()))
+    st.write("Total Penduduk:",int(jp2024)," | Penduduk Laki-laki:",int(datap2024.iloc[0:16,1].sum())," | Penduduk Perempuan:",int(datap2024.iloc[0:16,2].sum()))
     with st.expander("lihat tabel"):
         st.dataframe(datap2024.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
 elif pilih1==str(int(datadesa.iloc[19,1])):
@@ -85,7 +92,7 @@ elif pilih1==str(int(datadesa.iloc[19,1])):
         st.dataframe(datap2023.iloc[0:16,0:3], use_container_width=True, hide_index=True)   #menampilkan data
 
 #data pekerjaan
-url4 = 'https://docs.google.com/spreadsheets/d/1wjTtBvxU2a-x0LGEfkX7IaQcN1DhkzJ4ZqRk1DYO8Yw/edit?usp=sharing'
+url4 = 'https://docs.google.com/spreadsheets/d/1RPmfvPL4Bnr6on_rXtndeyiLazqeKqHRZctYKrgRq-s/edit?usp=sharing'
 kerja23 = conn.read(spreadsheet=url4)
 kerja23 = pd.DataFrame(kerja23)
 stkerja23 = kerja23.iloc[16:18,0:4]
@@ -159,7 +166,7 @@ with st.expander("lihat tabel"):
     st.dataframe(kerja23,use_container_width=True)
 
 st.write('# Pendidikan Tenaga Kerja Tahun ',str(int(datadesa.iloc[20,1])))
-url5 = 'https://docs.google.com/spreadsheets/d/1BaFB0sFvKIv_e3G8LX_6su-vwDUJKhZLWeE1knU5bT8/edit?usp=sharing'
+url5 = 'https://docs.google.com/spreadsheets/d/143uGikYZQwvTfgP4_GRjZOxey5_3SIeWp1Raw5ecrT8/edit?usp=sharing'
 pdik23 = conn.read(spreadsheet=url5)
 pdik23 = pd.DataFrame(pdik23)
 pdik23 = pdik23.iloc[0:6,0:4]
@@ -197,7 +204,7 @@ with st.expander("lihat tabel"):
     st.dataframe(pdik23,use_container_width=True)
 
 st.write('# Jumlah Penduduk Menurut Etnis Tahun ',str(int(datadesa.iloc[20,1])))
-url6 = 'https://docs.google.com/spreadsheets/d/1lrJgC7IgzaYUElTEzhix6m2Wz-u-ThN1WXsGRHgMv8s/edit?usp=sharing'
+url6 = 'https://docs.google.com/spreadsheets/d/14Z8wDSU1h8F7xS20gMHekrHCQ2BjtVg4ql2RyLVekzg/edit?usp=sharing'
 et23 = conn.read(spreadsheet=url6)
 et23 = pd.DataFrame(et23)
 et23.index = list(et23.iloc[0:21,0])
@@ -235,7 +242,7 @@ with st.expander("lihat tabel"):
     st.dataframe(et23,use_container_width=True)
 
 st.write('# Jumlah Penduduk Menurut Agama Tahun ',str(int(datadesa.iloc[19,1])))
-url7 = 'https://docs.google.com/spreadsheets/d/1dUtknRWJL7X_5qOs0zLF4zbFH2B4qPjyjkI6SMUxzwY/edit?usp=sharing'
+url7 = 'https://docs.google.com/spreadsheets/d/17OruE9Jd9Qr76Tkc-uZioV7IZSi_wqmCllwbHWhEQsc/edit?usp=sharing'
 agam23 = conn.read(spreadsheet=url7)
 agam23 = pd.DataFrame(agam23)
 agam23.index = list(agam23.iloc[0:9,0])
@@ -274,5 +281,5 @@ with st.expander("lihat tabel"):
 
 with st.sidebar:
     st.image('desa_cantik.png',width=100)
-    st.header("Dashboard Data Kependudukan Desa Cibiru Wetan")
-    st.caption("""Menu kependudukan ini menyediakan data jumlah penduduk berdasarkan usia, jenis kelamin, serta data tingkat pendidikan dan status pendidikan angkatan kerja (penduduk usia 18-56 tahun) di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
+    st.header("Dashboard Data Kependudukan Kelurahan Gunung Tinggi")
+    st.caption("""Menu kependudukan ini menyediakan data jumlah penduduk berdasarkan usia, jenis kelamin, serta data tingkat pendidikan dan status pendidikan angkatan kerja (penduduk usia 18-56 tahun) di Kelurahan Gunung Tinggi, Kecamatan Batulicin, Kabupaten Tanah Bumbu, Kalimantan Selatan.""")

@@ -1,22 +1,25 @@
 import streamlit as st
 import pandas as pd
 from streamlit_gsheets import GSheetsConnection
+import geopandas as gpd
+import folium
+from streamlit_folium import st_folium
 
 st.set_page_config(
     page_title="Unduh Publikasi",
     page_icon="📚",
 )
 
-urlbuku = 'https://docs.google.com/spreadsheets/d/1QmIOm1JnY9I9TkEUMlWXtZjs-igTHMfU45F1KLzAO8g/edit?usp=sharing'
+urlbuku = 'https://docs.google.com/spreadsheets/d/1iVqggywv8FP8yYlW844D4y5IHQMJagPtdjQCfUucP9M/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
 publikasi = conn.read(spreadsheet=urlbuku)
 publikasi = pd.DataFrame(publikasi)                       #convert ke panda df
 #this is the header
 t1, t2 = st.columns((0.25,1))
 
-t1.image('cibiruwetan.png', width = 100)
-t2.title("Desa Cantik Cibiru Wetan")
-t2.markdown(" **Halaman Unduh Publikasi Desa Cibiru Wetan** ")
+t1.image('logo pemkab tanbu.png', width = 100)
+t2.title("Kelurahan Cantik Gunung Tinggi")
+t2.markdown(" **Halaman Unduh Publikasi Kelurahan Gunung Tinggi** ")
 # Inisialisasi i
 i = 0
 
@@ -54,5 +57,5 @@ while i < len(publikasi):
     
 with st.sidebar:
     st.image('desa_cantik.png',width=100)
-    st.header("Dashboard Unduh Publikasi Desa Cibiru Wetan")
-    st.caption("""Menu Unduh Publikasi menyediakan publikasi yang berisikan kompilasi informasi dan data di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
+    st.header("Dashboard Unduh Publikasi Kelurahan Gunung Tinggi")
+    st.caption("""Menu Unduh Publikasi menyediakan publikasi yang berisikan kompilasi informasi dan data di Kelurahan Gunung Tinggi, Kecamatan Batulicin, Kabupaten Tanah Bumbu, Kalimantan Selatan.""")

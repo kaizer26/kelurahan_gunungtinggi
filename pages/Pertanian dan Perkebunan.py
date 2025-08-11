@@ -6,7 +6,7 @@ st.set_page_config(
     page_title="Pertanian dan Perkebunan",
     page_icon="🌴",
 )
-url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
+url = 'https://docs.google.com/spreadsheets/d/1n6RkwCmYWQm4Uc21GtgZ0Tc6BracOxevkqgtEq8lMoY/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
 datadesa = conn.read(spreadsheet=url)
 datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
@@ -14,11 +14,11 @@ datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
 #this is the header
 t1, t2 = st.columns((0.25,1))
 
-t1.image('cibiruwetan.png', width = 100)
-t2.title("Desa Cantik Cibiru Wetan")
-t2.markdown(" **Halaman Data Pertanian dan Perkebunan Desa Cibiru Wetan** ")
+t1.image('logo pemkab tanbu.png', width = 100)
+t2.title("Kelurahan Cantik Kelurahan Gunung Tinggi")
+t2.markdown(" **Halaman Data Pertanian dan Perkebunan Kelurahan Gunung Tinggi** ")
 
-url10='https://docs.google.com/spreadsheets/d/15sfFQbVZUmseAfOv70EXI4pe3wUusL9OvfeOex43ueg/edit?usp=sharing'
+url10='https://docs.google.com/spreadsheets/d/1n4OhTNKWiVf6zRYJgzcHU3hXcwTG0CCmEBQFML49ENc/edit?usp=sharing'
 pt23 = conn.read(spreadsheet=url10)
 pt23 = pd.DataFrame(pt23)                       #convert ke panda df
 lahan23 = pt23.iloc[68:73,0:2]
@@ -156,5 +156,5 @@ st.write(" Keterangan: data di atas merupakan data tahun ",str(int(datadesa.iloc
 
 with st.sidebar:
     st.image('desa_cantik.png',width=100)
-    st.header("Dashboard Data Pertanian dan Perkebunan Desa Cibiru Wetan")
-    st.caption("""Menu pertanian dan perkebunan menyediakan data luas lahan serta hasil panen dari berbagai komoditas tanaman pangan, buah-buahan, dan hasil perkebunan di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
+    st.header("Dashboard Data Pertanian dan Perkebunan Kelurahan Gunung Tinggi")
+    st.caption("""Menu pertanian dan perkebunan menyediakan data luas lahan serta hasil panen dari berbagai komoditas tanaman pangan, buah-buahan, dan hasil perkebunan di Kelurahan Gunung Tinggi, Kecamatan Batulicin, Kabupaten Tanah Bumbu, Kalimantan Selatan.""")

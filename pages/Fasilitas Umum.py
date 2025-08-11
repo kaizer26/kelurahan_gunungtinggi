@@ -7,18 +7,18 @@ st.set_page_config(
     page_icon=":cityscape:",
 )
 
-url = 'https://docs.google.com/spreadsheets/d/10TvMMPQnOEKG8gABZZw2LXAK1XDHsU17oGsXkhiORdA/edit?usp=sharing'
+url = 'https://docs.google.com/spreadsheets/d/1n6RkwCmYWQm4Uc21GtgZ0Tc6BracOxevkqgtEq8lMoY/edit?usp=sharing'
 conn  = st.connection("gsheets", type=GSheetsConnection)
 datadesa = conn.read(spreadsheet=url)
 datadesa = pd.DataFrame(datadesa)                       #convert ke panda df
 #this is the header
 t1, t2 = st.columns((0.25,1))
 
-t1.image('cibiruwetan.png', width = 100)
-t2.title("Desa Cantik Cibiru Wetan")
-t2.markdown(" **Halaman Data Fasilitas Umum Desa Cibiru Wetan** ")
+t1.image('logo pemkab tanbu.png', width = 100)
+t2.title("Kelurahan Cantik Gunung Tinggi")
+t2.markdown(" **Halaman Data Fasilitas Umum Kelurahan Gunung Tinggi** ")
 
-url9='https://docs.google.com/spreadsheets/d/1Skt6QdDL1_EKQJ3MgdJG53-FtCevRv56pRZNOyBf4lI/edit?usp=sharing'
+url9='https://docs.google.com/spreadsheets/d/1KFo2hs7pTIqJ555BCx-tpn2foaFpV3i7K9PcKVbFR7A/edit?usp=sharing'
 fas23 = conn.read(spreadsheet=url9)
 fas23 = pd.DataFrame(fas23)                       #convert ke panda df
 fas23 = fas23.iloc[1:98,0:3]
@@ -96,5 +96,5 @@ st.write(" Keterangan: data di atas merupakan data tahun ",str(int(datadesa.iloc
 
 with st.sidebar:
     st.image('desa_cantik.png',width=100)
-    st.header("Dashboard Data Fasilitas Umum Desa Cibiru Wetan")
-    st.caption("""Menu fasilitas umum menyediakan data jumlah fasilitas yang dapat diakses masyarakat, meliputi fasilitas pendidikan, kesehatan, perbankan, dan lainnya di Desa Cibiru Wetan, Kecamatan Cileunyi, Kabupaten Bandung, Jawa Barat.""")
+    st.header("Dashboard Data Fasilitas Umum Kelurahan Gunung Tinggi")
+    st.caption("""Menu fasilitas umum menyediakan data jumlah fasilitas yang dapat diakses masyarakat, meliputi fasilitas pendidikan, kesehatan, perbankan, dan lainnya di Kelurahan Gunung Tinggi, Kecamatan Batulicin, Kabupaten Tanah Bumbu, Kalimantan Selatan.""")
