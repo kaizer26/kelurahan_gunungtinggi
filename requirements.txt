@@ -7,5 +7,5 @@ matplotlib
 folium
 plotly
 geopandas
-leaflet
+leafmap
 streamlit_folium 
