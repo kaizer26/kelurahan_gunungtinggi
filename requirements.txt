@@ -1,4 +1,8 @@
-geopandas
-streamlit_folium
-leafmap
-streamlit-gsheets
+streamlit
+pandas
+st-gsheets-connection
+altair
+pydeck
+matplotlib
+folium
+plotly
