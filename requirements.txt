@@ -8,3 +8,4 @@ folium
 plotly
 geopandas
 leaflet
+streamlit_folium 
