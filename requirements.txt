@@ -2,3 +2,4 @@ geopandas
 streamlit_folium
 leafmap
 streamlit_gsheets
+streamlit-gsheets
